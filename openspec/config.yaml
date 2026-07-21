@@ -1,0 +1,37 @@
+# openspec/config.yaml
+schema: spec-driven
+
+context: |
+  Project: OpenDesign — Agent-native design system workspace.
+  Stack: Vite 5 + React 19 + OGL (SoftAurora WebGL background)
+  Architecture: SPA landing page (vanilla JS entry, React for components)
+  Testing: No test runner configured
+  Style: JSX + CSS, no type system
+  Cortex: cortex-persona + ponytail-* skills active
+  Graphify: 7-node knowledge graph built, MCP configured
+  Persistence: hybrid (openspec + engram)
+
+rules:
+  proposal:
+    - Include rollback plan for risky changes
+    - Ponytail: flag YAGNI features and stdlib alternatives
+  specs:
+    - Use Given/When/Then for scenarios
+    - Use RFC 2119 keywords (MUST, SHALL, SHOULD, MAY)
+  design:
+    - Include sequence diagrams for complex flows
+    - Document architecture decisions with rationale
+    - Ponytail: check for over-engineered abstractions
+  tasks:
+    - Group by phase, use hierarchical numbering
+    - Keep tasks completable in one session
+  apply:
+    - Follow existing code patterns
+    tdd: false
+    test_command: ""
+  verify:
+    test_command: ""
+    build_command: "npm run build"
+    coverage_threshold: 0
+  archive:
+    - Warn before merging destructive deltas

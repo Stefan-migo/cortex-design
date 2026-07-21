@@ -1,0 +1,77 @@
+/* ──────────────────────────────────────────────
+   Global reset & base styles
+   ────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  background: #0a0a0f;
+  scroll-behavior: auto;
+}
+
+body {
+  min-height: 100%;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #0a0a0f;
+  color: #f0f0f5;
+  overflow-x: hidden;
+
+  /* Hide default cursor — custom cursor handles it.
+     Restored on interactive elements via body:has() fallback. */
+  cursor: none;
+}
+
+/* Keep default cursor on interactive elements for accessibility.
+   Using cursor: auto ensures the OS picks the right pointer/link/etc icon. */
+a,
+button,
+input,
+textarea,
+select,
+[role="button"],
+[tabindex]:not([tabindex="-1"]) {
+  cursor: auto;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ── selection ── */
+::selection {
+  background: rgba(99, 102, 241, 0.35);
+  color: #fff;
+}
+
+/* ── Lenis overrides ── */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* ── reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  html.lenis {
+    scroll-behavior: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto;
+  }
+}
