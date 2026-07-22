@@ -23,7 +23,7 @@ export const Default = {
 }
 
 export const AllAxes = {
-  args: { text: 'Compressa', flex: true, width: true, weight: true, italic: true, alpha: false, stroke: false },
+  args: { text: 'Compressa', flex: true, width: true, weight: true, italic: true, alpha: true, stroke: true },
 }
 
 export const NoFlex = {

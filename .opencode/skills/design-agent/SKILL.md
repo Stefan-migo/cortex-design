@@ -117,6 +117,8 @@ The agent receives the full INDEX.md as context and reads full `reference.md` fi
 
 Trigger: User provides URL, image, or video for design analysis.
 
+**BEFORE starting:** load the Animation Patterns Library at `refs/design/ref-004-animation-patterns/reference.md`. Use pattern IDs to classify what you observe.
+
 Prompt template:
 ```
 You are a design reference analyst. Given the following reference, produce a
@@ -128,6 +130,13 @@ Analyze:
 1. What design system patterns do you observe? (palette, type scale, spacing grid)
 2. How does scroll work? (behavior, speed, direction influence)
 3. What transitions and animations are used? (type, duration, easing, triggers)
+   IMPORTANT: Use the Animation Patterns Library (ref-004) to CLASSIFY each animation.
+   For each animation you find, identify which pattern ID it matches:
+   - "Hero heading entrance → 1.4 Clip-Path Reveal"
+   - "Card hover → 3.1 Scale Up"
+   - "Section transition → 6.2 Slide Cover"
+   - "Text reveal → 5.6 Text Mask Reveal"
+   If a pattern is new (not in the library), describe it in enough detail to add it later.
 4. What technical stack does this imply? (React? Canvas? WebGL? GSAP?)
 5. What makes this feel special? (qualitative — be specific, don't say "smooth")
 6. What techniques could we replicate? (be concrete: CSS, JS API, library)
@@ -145,12 +154,15 @@ Include:
 - `narrative.scroll_journey[]` — ordered sections with scroll_range, trigger, elements, stagger, section_transition
 - `narrative.interaction_layer[]` — element behaviors per section
 - `narrative.choreography` — global rules (easing, timing philosophy, direction matters)
+- `animation_patterns[]` — list of pattern IDs from ref-004 that were observed, with notes on how they were used
 Include a qualitative assessment that a designer would recognize as authentic.
 ```
 
 ## Mode: designer
 
 Trigger: User asks to design/implement a section or component.
+
+**BEFORE starting:** load the Animation Patterns Library at `refs/design/ref-004-animation-patterns/reference.md`. This gives you the shared vocabulary of animation patterns (by ID: 1.1, 1.4, 4.2, etc.). Every animation you choose MUST reference a pattern ID from this library.
 
 Prompt template:
 ```
@@ -168,24 +180,76 @@ TASK: {what to design}
 - What is the pacing? Which sections are slow/deliberate vs fast?
 - Write this as a comment block at the top of your first file
 
-### STEP 2: Design the interaction layer
-- What happens on hover for each interactive element?
+### STEP 2: Generate the Animation Plan (MANDATORY — write this BEFORE coding)
+
+> Use the Animation Patterns Library at `refs/design/ref-004-animation-patterns/reference.md`
+> Reference patterns by their ID (e.g., "1.4 Clip-Path Reveal", "4.2 Stagger Cascade", "5.7 Letter Stagger")
+> Choose patterns by matching the brand tone, not just because they look cool.
+
+For EACH section, define:
+
+**2a. Element Animation Table** — per element in the section layout:
+
+```yaml
+section: "hero"
+elements:
+  - element: "main-heading"
+    entrance: "1.4 Clip-Path Reveal — slit horizontal, 1.2s"
+    hover: "3.4 Text Gradient Shift"
+    exit: "2.5 Blur Out — when scrolling past section"
+  - element: "tagline"
+    entrance: "1.1 Fade In — delayed 0.4s after heading"
+    hover: "none"
+    exit: "2.1 Fade Out"
+  - element: "background-image"
+    entrance: "1.3 Scale In — from 1.05→1, slow 1.6s"
+    hover: "none"
+    exit: "none — stays as parallax layer"
+```
+
+- **entrance**: cómo aparece el elemento (patrón + duración + delay/stagger)
+- **hover**: cómo reacciona al hover (patrón + duración + easing)
+- **exit**: cómo desaparece cuando se scrollea fuera (patrón + duración)
+- Si un elemento no necesita hover o exit, marcarlo como `none` explícitamente
+
+**2b. Block Transitions** — cómo transiciona cada sección a la siguiente:
+
+```yaml
+transitions:
+  hero → philosophy: "6.2 Slide Cover — philosophy cubre desde abajo, 1.4s"
+  philosophy → contact: "6.4 Video Crossfade — fade cruzado, 1.2s"
+```
+
+**2c. Text Animation Rules** (solo si hay texto que animar):
+- ¿Hay headings que merecen split animation? (5.1, 5.2, 5.7)
+- ¿Hay texto que se revela como máscara? (5.6)
+- ¿Hay gradientes en texto? (5.5)
+- Elegir text pattern y justificar
+
+**2d. Complexity Budget:**
+- 🟢 Básicos (CSS puro): usar para el 70%+ de las animaciones
+- 🟡 Intermedios (CSS + IntersectionObserver): usar para reveals y staggers
+- 🔴 Avanzados (librería/SVG/JS pesado): usar SOLO si el diseño lo exige
+
+### STEP 3: Design the interaction layer
+- What happens on hover for each interactive element? (already defined in 2a, expand here)
 - What changes between sections? (nav bg, cursor, sound)
 - What micro-interactions exist? (button ripple, card lift, text reveal)
 
-### STEP 3: Implement
+### STEP 4: Implement
 Rules:
 1. Read the DRL references first. Your design MUST reference at least one pattern from DRL.
-2. Output working JSX + CSS code. No pseudo-code, no "implement this later."
-3. Use CSS first, JS animation only when CSS cannot achieve the effect.
-4. Every animation/transition must have a rationale — why this timing, why this easing.
-5. After generating, run ponytail-review on your own output:
+2. Read the Animation Patterns Library (ref-004) and USE the IDs chosen in STEP 2. Do not invent new animation approaches — use the library.
+3. Output working JSX + CSS code. No pseudo-code, no "implement this later."
+4. Use CSS first, JS animation only when CSS cannot achieve the effect.
+5. Every animation/transition must have a rationale — why this timing, why this easing, why this pattern ID.
+6. After generating, run ponytail-review on your own output:
    - Can any CSS be replaced with standard properties?
    - Are there unused animation variants?
    - Is any JS animation achievable with CSS transitions?
    - Would a simpler approach look 80% as good?
-6. Write files to {project_path}. Do NOT create placeholder files.
-7. Save what you learned to Engram: design decisions, patterns discovered, references used.
+7. Write files to {project_path}. Do NOT create placeholder files.
+8. Save what you learned to Engram: design decisions, patterns discovered, references used.
 ```
 
 ## Skills loaded by this agent

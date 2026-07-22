@@ -1,6 +1,16 @@
-/* ──────────────────────────────────────────────
-   Global reset & base styles
-   ────────────────────────────────────────────── */
+:root {
+  --bg: #0a0a0f;
+  --surface: #12121a;
+  --surface-hover: #1a1a26;
+  --border: rgba(255, 255, 255, 0.06);
+  --text: #f0f0f5;
+  --text-muted: #6b6b80;
+  --accent: #6366f1;
+  --accent-glow: rgba(99, 102, 241, 0.12);
+  --green: #22c55e;
+  --orange: #f59e0b;
+  --ease: cubic-bezier(0.19, 1, 0.22, 1);
+}
 
 *,
 *::before,
@@ -12,8 +22,7 @@
 
 html {
   height: 100%;
-  background: #0a0a0f;
-  scroll-behavior: auto;
+  background: var(--bg);
 }
 
 body {
@@ -22,56 +31,16 @@ body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #0a0a0f;
-  color: #f0f0f5;
+  background: var(--bg);
+  color: var(--text);
   overflow-x: hidden;
-
-  /* Hide default cursor — custom cursor handles it.
-     Restored on interactive elements via body:has() fallback. */
-  cursor: none;
-}
-
-/* Keep default cursor on interactive elements for accessibility.
-   Using cursor: auto ensures the OS picks the right pointer/link/etc icon. */
-a,
-button,
-input,
-textarea,
-select,
-[role="button"],
-[tabindex]:not([tabindex="-1"]) {
-  cursor: auto;
 }
 
 #root {
   min-height: 100vh;
 }
 
-/* ── selection ── */
 ::selection {
   background: rgba(99, 102, 241, 0.35);
   color: #fff;
-}
-
-/* ── Lenis overrides ── */
-html.lenis {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-/* ── reduced motion ── */
-@media (prefers-reduced-motion: reduce) {
-  html.lenis {
-    scroll-behavior: auto;
-  }
-  .lenis.lenis-smooth {
-    scroll-behavior: auto;
-  }
 }

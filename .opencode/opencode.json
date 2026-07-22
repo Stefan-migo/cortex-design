@@ -18,20 +18,6 @@
       "_description": "Platform built-in web fetch for URL reference analysis"
     }
   },
-  "agents": {
-    "design-agent": {
-      "type": "local",
-      "skills": [
-        "design-agent",
-        "ponytail-plan",
-        "ponytail-review"
-      ],
-      "mcp": [
-        "graphify",
-        "webfetch"
-      ]
-    }
-  },
   "plugin": [
     "/home/stefan/Cortex/.opencode/plugins/graphify.js"
   ]

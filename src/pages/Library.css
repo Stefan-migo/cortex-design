@@ -1,0 +1,72 @@
+.library__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.library__empty {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.library__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.library__card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.library__card:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.08), 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.library__card-preview {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.015);
+  overflow: hidden;
+  position: relative;
+  pointer-events: none;
+}
+
+/* override components that demand full viewport inside tiny card */
+.library__card-preview .curved-loop-jacket {
+  min-height: 140px !important;
+}
+
+.library__card-placeholder {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.library__card-body {
+  padding: 0.75rem 1rem;
+}
+
+.library__card-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.library__card-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}

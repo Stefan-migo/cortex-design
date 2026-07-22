@@ -9,6 +9,9 @@
 |---|------|------|-------|----------|
 | 001 | Awwwards Nominee — Example | scroll-triggered, parallax | vite, react | 2026-07-20 |
 | 002 | Glenn Catteeuw — Portfolio | scroll-driven, infinite-scroll, webgl-background, split-text, preloader-as-intro, sound-design, smooth-scroll | astro-v2, three-js, lenis, alpine-js | 2026-07-20 |
+| 003 | Voyeur Vérité — Creative Studio | documentary, editorial, dark-theme, clip-path, scroll-driven, video-background, preloader, typography-led, svg-morph, observational | webflow, gsap, lenis, vanilla-js | 2026-07-21 |
+| 004 | Animation Patterns Library | animation, reference, patterns, entrance, exit, hover, scroll, text, transition, motion | css, gsap, motion-dev, vanilla-js, intersection-observer | 2026-07-21 |
+| 005 | Blobmixer by 14islands — 3D Blob Creator | webgl, threejs, 3d, creative-tech, interactive, loading, blob, morph, vr, dark-theme, generative | react, three-js, react-three-fiber, webgl, create-react-app | 2026-07-21 |
 
 ## Conventions
 
