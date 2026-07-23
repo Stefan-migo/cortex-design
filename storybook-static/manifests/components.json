@@ -1,0 +1,452 @@
+{
+  "v": 0,
+  "components": {
+    "components-textanimations-curvedloop": {
+      "id": "components-textanimations-curvedloop",
+      "name": "CurvedLoop",
+      "path": "./src/components/TextAnimations/CurvedLoop.stories.jsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "CurvedLoop",
+        "definedInFile": "/run/media/stefan/Nuevo vol/Proyectos/OpenDesign/src/components/TextAnimations/CurvedLoop.jsx",
+        "actualName": "CurvedLoop",
+        "exportName": "CurvedLoop",
+        "props": {
+          "marqueeText": {
+            "defaultValue": {
+              "value": "''",
+              "computed": false
+            },
+            "required": false
+          },
+          "speed": {
+            "defaultValue": {
+              "value": "2",
+              "computed": false
+            },
+            "required": false
+          },
+          "curveAmount": {
+            "defaultValue": {
+              "value": "400",
+              "computed": false
+            },
+            "required": false
+          },
+          "direction": {
+            "defaultValue": {
+              "value": "'left'",
+              "computed": false
+            },
+            "required": false
+          },
+          "interactive": {
+            "defaultValue": {
+              "value": "true",
+              "computed": false
+            },
+            "required": false
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "components-textanimations-curvedloop--default",
+          "name": "Default",
+          "snippet": "const Default = () => <CurvedLoop\n    marqueeText=\"Cortex Design Library\"\n    speed={2}\n    curveAmount={400}\n    direction=\"left\"\n    interactive />;"
+        },
+        {
+          "id": "components-textanimations-curvedloop--fast-right",
+          "name": "Fast Right",
+          "snippet": "const FastRight = () => <CurvedLoop\n    marqueeText=\"Cortex Design Library\"\n    speed={4}\n    curveAmount={400}\n    direction=\"right\"\n    interactive />;"
+        },
+        {
+          "id": "components-textanimations-curvedloop--extreme-curve",
+          "name": "Extreme Curve",
+          "snippet": "const ExtremeCurve = () => <CurvedLoop\n    marqueeText=\"Cortex Design Library\"\n    speed={2}\n    curveAmount={800}\n    direction=\"left\"\n    interactive />;"
+        },
+        {
+          "id": "components-textanimations-curvedloop--stationary",
+          "name": "Stationary",
+          "snippet": "const Stationary = () => <CurvedLoop\n    marqueeText=\"Cortex Design Library\"\n    speed={0.5}\n    curveAmount={400}\n    direction=\"left\"\n    interactive={false} />;"
+        }
+      ],
+      "import": "import { CurvedLoop } from \"opendesign-landing\";"
+    },
+    "components-textanimations-fuzzytext": {
+      "id": "components-textanimations-fuzzytext",
+      "name": "FuzzyText",
+      "path": "./src/components/TextAnimations/FuzzyText.stories.jsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "FuzzyText",
+        "definedInFile": "/run/media/stefan/Nuevo vol/Proyectos/OpenDesign/src/components/TextAnimations/FuzzyText.jsx",
+        "actualName": "FuzzyText",
+        "exportName": "FuzzyText",
+        "props": {
+          "fontSize": {
+            "defaultValue": {
+              "value": "'clamp(2rem, 8vw, 8rem)'",
+              "computed": false
+            },
+            "required": false
+          },
+          "fontWeight": {
+            "defaultValue": {
+              "value": "900",
+              "computed": false
+            },
+            "required": false
+          },
+          "fontFamily": {
+            "defaultValue": {
+              "value": "'inherit'",
+              "computed": false
+            },
+            "required": false
+          },
+          "color": {
+            "defaultValue": {
+              "value": "'#fff'",
+              "computed": false
+            },
+            "required": false
+          },
+          "enableHover": {
+            "defaultValue": {
+              "value": "true",
+              "computed": false
+            },
+            "required": false
+          },
+          "baseIntensity": {
+            "defaultValue": {
+              "value": "0.18",
+              "computed": false
+            },
+            "required": false
+          },
+          "hoverIntensity": {
+            "defaultValue": {
+              "value": "0.5",
+              "computed": false
+            },
+            "required": false
+          },
+          "fuzzRange": {
+            "defaultValue": {
+              "value": "30",
+              "computed": false
+            },
+            "required": false
+          },
+          "fps": {
+            "defaultValue": {
+              "value": "60",
+              "computed": false
+            },
+            "required": false
+          },
+          "direction": {
+            "defaultValue": {
+              "value": "'horizontal'",
+              "computed": false
+            },
+            "required": false
+          },
+          "transitionDuration": {
+            "defaultValue": {
+              "value": "0",
+              "computed": false
+            },
+            "required": false
+          },
+          "clickEffect": {
+            "defaultValue": {
+              "value": "false",
+              "computed": false
+            },
+            "required": false
+          },
+          "glitchMode": {
+            "defaultValue": {
+              "value": "false",
+              "computed": false
+            },
+            "required": false
+          },
+          "glitchInterval": {
+            "defaultValue": {
+              "value": "2000",
+              "computed": false
+            },
+            "required": false
+          },
+          "glitchDuration": {
+            "defaultValue": {
+              "value": "200",
+              "computed": false
+            },
+            "required": false
+          },
+          "gradient": {
+            "defaultValue": {
+              "value": "null",
+              "computed": false
+            },
+            "required": false
+          },
+          "letterSpacing": {
+            "defaultValue": {
+              "value": "0",
+              "computed": false
+            },
+            "required": false
+          },
+          "className": {
+            "defaultValue": {
+              "value": "''",
+              "computed": false
+            },
+            "required": false
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "components-textanimations-fuzzytext--default",
+          "name": "Default",
+          "snippet": "const Default = () => <FuzzyText\n    baseIntensity={0.18}\n    hoverIntensity={0.5}\n    fuzzRange={30}\n    direction=\"horizontal\"\n    fontWeight={900}\n    enableHover\n    glitchMode={false}>Fuzzy Text</FuzzyText>;"
+        },
+        {
+          "id": "components-textanimations-fuzzytext--vertical",
+          "name": "Vertical",
+          "snippet": "const Vertical = () => <FuzzyText\n    baseIntensity={0.18}\n    hoverIntensity={0.5}\n    fuzzRange={30}\n    direction=\"vertical\"\n    fontWeight={900}\n    enableHover\n    glitchMode={false}>Vertical</FuzzyText>;"
+        },
+        {
+          "id": "components-textanimations-fuzzytext--high-fuzz",
+          "name": "High Fuzz",
+          "snippet": "const HighFuzz = () => <FuzzyText\n    baseIntensity={0.3}\n    hoverIntensity={0.5}\n    fuzzRange={80}\n    direction=\"horizontal\"\n    fontWeight={900}\n    enableHover\n    glitchMode={false}>High Fuzz</FuzzyText>;"
+        },
+        {
+          "id": "components-textanimations-fuzzytext--glitch-mode",
+          "name": "Glitch Mode",
+          "snippet": "const GlitchMode = () => <FuzzyText\n    baseIntensity={0.18}\n    hoverIntensity={0.5}\n    fuzzRange={30}\n    direction=\"horizontal\"\n    fontWeight={900}\n    enableHover={false}\n    glitchMode>Glitch</FuzzyText>;"
+        }
+      ],
+      "import": "import { FuzzyText } from \"opendesign-landing\";"
+    },
+    "components-textanimations-glitchtext": {
+      "id": "components-textanimations-glitchtext",
+      "name": "GlitchText",
+      "path": "./src/components/TextAnimations/GlitchText.stories.jsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "GlitchText",
+        "definedInFile": "/run/media/stefan/Nuevo vol/Proyectos/OpenDesign/src/components/TextAnimations/GlitchText.jsx",
+        "actualName": "GlitchText",
+        "exportName": "GlitchText",
+        "props": {
+          "speed": {
+            "defaultValue": {
+              "value": "0.5",
+              "computed": false
+            },
+            "required": false
+          },
+          "enableShadows": {
+            "defaultValue": {
+              "value": "true",
+              "computed": false
+            },
+            "required": false
+          },
+          "enableOnHover": {
+            "defaultValue": {
+              "value": "false",
+              "computed": false
+            },
+            "required": false
+          },
+          "className": {
+            "defaultValue": {
+              "value": "''",
+              "computed": false
+            },
+            "required": false
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "components-textanimations-glitchtext--default",
+          "name": "Default",
+          "snippet": "const Default = () => <GlitchText speed={0.5} enableShadows enableOnHover={false}>Glitch Effect</GlitchText>;"
+        },
+        {
+          "id": "components-textanimations-glitchtext--hover-only",
+          "name": "Hover Only",
+          "snippet": "const HoverOnly = () => <GlitchText speed={1} enableShadows enableOnHover>Hover me</GlitchText>;"
+        },
+        {
+          "id": "components-textanimations-glitchtext--slow-motion",
+          "name": "Slow Motion",
+          "snippet": "const SlowMotion = () => <GlitchText speed={0.1} enableShadows enableOnHover={false}>Slow...</GlitchText>;"
+        },
+        {
+          "id": "components-textanimations-glitchtext--no-shadows",
+          "name": "No Shadows",
+          "snippet": "const NoShadows = () => <GlitchText speed={0.5} enableShadows={false} enableOnHover={false}>No shadows</GlitchText>;"
+        }
+      ],
+      "import": "import { GlitchText } from \"opendesign-landing\";"
+    },
+    "components-textanimations-textpressure": {
+      "id": "components-textanimations-textpressure",
+      "name": "TextPressure",
+      "path": "./src/components/TextAnimations/TextPressure.stories.jsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "TextPressure",
+        "definedInFile": "/run/media/stefan/Nuevo vol/Proyectos/OpenDesign/src/components/TextAnimations/TextPressure.jsx",
+        "actualName": "TextPressure",
+        "exportName": "TextPressure",
+        "props": {
+          "text": {
+            "defaultValue": {
+              "value": "'Compressa'",
+              "computed": false
+            },
+            "required": false
+          },
+          "fontFamily": {
+            "defaultValue": {
+              "value": "'Roboto Flex'",
+              "computed": false
+            },
+            "required": false
+          },
+          "fontUrl": {
+            "defaultValue": {
+              "value": "'https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap'",
+              "computed": false
+            },
+            "required": false
+          },
+          "width": {
+            "defaultValue": {
+              "value": "true",
+              "computed": false
+            },
+            "required": false
+          },
+          "weight": {
+            "defaultValue": {
+              "value": "true",
+              "computed": false
+            },
+            "required": false
+          },
+          "italic": {
+            "defaultValue": {
+              "value": "true",
+              "computed": false
+            },
+            "required": false
+          },
+          "alpha": {
+            "defaultValue": {
+              "value": "false",
+              "computed": false
+            },
+            "required": false
+          },
+          "flex": {
+            "defaultValue": {
+              "value": "true",
+              "computed": false
+            },
+            "required": false
+          },
+          "stroke": {
+            "defaultValue": {
+              "value": "false",
+              "computed": false
+            },
+            "required": false
+          },
+          "scale": {
+            "defaultValue": {
+              "value": "false",
+              "computed": false
+            },
+            "required": false
+          },
+          "textColor": {
+            "defaultValue": {
+              "value": "'#FFFFFF'",
+              "computed": false
+            },
+            "required": false
+          },
+          "strokeColor": {
+            "defaultValue": {
+              "value": "'#FF0000'",
+              "computed": false
+            },
+            "required": false
+          },
+          "className": {
+            "defaultValue": {
+              "value": "''",
+              "computed": false
+            },
+            "required": false
+          },
+          "minFontSize": {
+            "defaultValue": {
+              "value": "24",
+              "computed": false
+            },
+            "required": false
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "components-textanimations-textpressure--default",
+          "name": "Default",
+          "snippet": "const Default = () => <TextPressure text=\"Compressa\" flex width weight italic alpha={false} stroke={false} />;"
+        },
+        {
+          "id": "components-textanimations-textpressure--all-axes",
+          "name": "All Axes",
+          "snippet": "const AllAxes = () => <TextPressure text=\"Compressa\" flex width weight italic alpha stroke />;"
+        },
+        {
+          "id": "components-textanimations-textpressure--no-flex",
+          "name": "No Flex",
+          "snippet": "const NoFlex = () => <TextPressure\n    text=\"Compressa\"\n    flex={false}\n    width\n    weight\n    italic\n    alpha={false}\n    stroke={false} />;"
+        },
+        {
+          "id": "components-textanimations-textpressure--minimal",
+          "name": "Minimal",
+          "snippet": "const Minimal = () => <TextPressure\n    text=\"Compressa\"\n    flex={false}\n    width={false}\n    weight\n    italic={false}\n    alpha={false}\n    stroke={false} />;"
+        }
+      ],
+      "import": "import { TextPressure } from \"opendesign-landing\";"
+    }
+  },
+  "meta": {
+    "docgen": "react-docgen",
+    "durationMs": 604
+  }
+}

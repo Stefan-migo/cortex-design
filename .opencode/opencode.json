@@ -16,6 +16,12 @@
       "type": "builtin",
       "enabled": true,
       "_description": "Platform built-in web fetch for URL reference analysis"
+    },
+    "storybook": {
+      "type": "remote",
+      "url": "http://localhost:6006/mcp",
+      "enabled": true,
+      "_description": "Cortex Design Library \u2014 component docs, props, and stories via Storybook MCP. Available when `npm run storybook` is running."
     }
   },
   "plugin": [

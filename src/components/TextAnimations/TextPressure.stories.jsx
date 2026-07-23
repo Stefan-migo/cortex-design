@@ -13,6 +13,8 @@ const meta = {
     italic: { control: 'boolean' },
     alpha: { control: 'boolean' },
     stroke: { control: 'boolean' },
+    textColor: { control: 'color' },
+    strokeColor: { control: 'color' },
   },
 }
 

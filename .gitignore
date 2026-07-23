@@ -18,6 +18,9 @@ storybook-static/
 .DS_Store
 Thumbs.db
 
+# Storybook build output (regenerated each time)
+/storybook-static/
+
 # Logs
 *.log
 npm-debug.log*

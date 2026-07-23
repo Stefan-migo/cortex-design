@@ -15,14 +15,18 @@ export const withFont = (Story) => {
   return <Story />;
 };
 
-/** Centers stories and provides minimum canvas height. */
-const withCanvas = (Story) => (
+/** Dark wrapper: matches our design system background. Centers stories. */
+const withDark = (Story) => (
   <div
     style={{
+      background: '#0a0a0f',
+      color: '#ffffff',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      minHeight: '200px',
+      minHeight: '100vh',
+      padding: '2rem',
+      boxSizing: 'border-box',
     }}
   >
     <Story />
@@ -41,7 +45,7 @@ const preview = {
       },
     },
   },
-  decorators: [withCanvas],
+  decorators: [withDark],
 };
 
 export default preview;
