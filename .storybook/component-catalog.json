@@ -1,0 +1,437 @@
+{
+  "version": "1",
+  "components": [
+    {
+      "id": "glitch-text",
+      "storyFile": "../src/components/TextAnimations/GlitchText.stories.jsx",
+      "visualContext": ["hero", "callout", "feedback"],
+      "moodTags": ["edgy", "tech", "playful"],
+      "adaptationRules": {
+        "variants": ["Default", "HoverOnly", "SlowMotion", "NoShadows"]
+      }
+    },
+    {
+      "id": "text-pressure",
+      "storyFile": "../src/components/TextAnimations/TextPressure.stories.jsx",
+      "visualContext": ["hero", "headline", "callout"],
+      "moodTags": ["dynamic", "experimental", "modern"],
+      "adaptationRules": {
+        "variants": ["Default", "AllAxes", "NoFlex", "Minimal"]
+      }
+    },
+    {
+      "id": "fuzzy-text",
+      "storyFile": "../src/components/TextAnimations/FuzzyText.stories.jsx",
+      "visualContext": ["hero", "hover", "feedback"],
+      "moodTags": ["playful", "chaotic", "edgy"],
+      "adaptationRules": {
+        "variants": ["Default", "Vertical", "HighFuzz", "GlitchMode"]
+      }
+    },
+    {
+      "id": "curved-loop",
+      "storyFile": "../src/components/TextAnimations/CurvedLoop.stories.jsx",
+      "visualContext": ["hero", "showcase", "marquee"],
+      "moodTags": ["dynamic", "playful", "elegant"],
+      "adaptationRules": {
+        "variants": ["Default", "FastRight", "ExtremeCurve", "Stationary"]
+      }
+    },
+    {
+      "id": "curtains",
+      "storyFile": "../src/components/Transitions/DoorsOverlay.stories.jsx",
+      "visualContext": ["transition", "navigation", "page-change"],
+      "moodTags": ["modern", "dynamic", "sleek"],
+      "adaptationRules": {
+        "variants": ["Default"]
+      }
+    },
+    {
+      "id": "layout",
+      "storyFile": null,
+      "visualContext": ["layout", "navigation", "shell"],
+      "moodTags": ["clean", "structured", "minimal"],
+      "adaptationRules": {
+        "variants": ["Default"]
+      }
+    },
+    {
+      "id": "controls-panel",
+      "storyFile": null,
+      "visualContext": ["playground", "customization", "controls"],
+      "moodTags": ["functional", "minimal", "clean"],
+      "adaptationRules": {
+        "variants": ["Default"]
+      }
+    },
+    {
+      "id": "shiny-text",
+      "storyFile": "../src/components/TextAnimations/ShinyText/ShinyText.stories.jsx",
+      "visualContext": ["hero", "callout", "headline"],
+      "moodTags": ["elegant", "modern", "premium"],
+      "adaptationRules": {
+        "variants": ["Default", "Slow", "RightToLeft", "Yoyo"]
+      }
+    },
+    {
+      "id": "gradient-text",
+      "storyFile": "../src/components/TextAnimations/GradientText/GradientText.stories.jsx",
+      "visualContext": ["hero", "headline", "callout", "brand"],
+      "moodTags": ["vibrant", "dynamic", "playful"],
+      "adaptationRules": {
+        "variants": ["Default", "Vertical", "Fast", "Yoyo", "PauseOnHover", "WithBorder"]
+      }
+    },
+    {
+      "id": "circular-text",
+      "storyFile": "../src/components/TextAnimations/CircularText/CircularText.stories.jsx",
+      "visualContext": ["hero", "showcase", "badge", "marquee"],
+      "moodTags": ["playful", "dynamic", "experimental"],
+      "adaptationRules": {
+        "variants": ["Default", "SlowSpin", "SpeedUpOnHover", "PauseOnHover", "GoBonkers"]
+      }
+    },
+    {
+      "id": "blur-text",
+      "storyFile": "../src/components/TextAnimations/BlurText/BlurText.stories.jsx",
+      "visualContext": ["hero", "callout", "scroll-reveal"],
+      "moodTags": ["modern", "smooth", "elegant"],
+      "adaptationRules": {
+        "variants": ["Default", "ByCharacter", "FromBottom", "Fast", "Slow"]
+      }
+    },
+    {
+      "id": "rotating-text",
+      "storyFile": "../src/components/TextAnimations/RotatingText/RotatingText.stories.jsx",
+      "visualContext": ["hero", "headline", "showcase"],
+      "moodTags": ["dynamic", "playful", "modern"],
+      "adaptationRules": {
+        "variants": ["Default", "Fast", "Slow", "StaggerWords", "SingleChar"]
+      }
+    },
+    {
+      "id": "scrambled-text",
+      "storyFile": "../src/components/TextAnimations/ScrambledText/ScrambledText.stories.jsx",
+      "visualContext": ["hero", "hover", "feedback"],
+      "moodTags": ["playful", "tech", "experimental"],
+      "adaptationRules": {
+        "variants": ["Default", "Wide", "FastScramble", "CustomChars"]
+      }
+    },
+    {
+      "id": "shuffle",
+      "storyFile": "../src/components/TextAnimations/Shuffle/Shuffle.stories.jsx",
+      "visualContext": ["hero", "headline", "scroll-reveal"],
+      "moodTags": ["dynamic", "playful", "modern"],
+      "adaptationRules": {
+        "variants": ["Default", "FromLeft", "StaggerHeavy", "Fast"]
+      }
+    },
+    {
+      "id": "split-text",
+      "storyFile": "../src/components/TextAnimations/SplitText/SplitText.stories.jsx",
+      "visualContext": ["hero", "callout", "scroll-reveal"],
+      "moodTags": ["modern", "smooth", "elegant"],
+      "adaptationRules": {
+        "variants": ["Default", "ByWord", "Fast", "FromTop", "H1Tag"]
+      }
+    },
+    {
+      "id": "scroll-reveal",
+      "storyFile": "../src/components/TextAnimations/ScrollReveal/ScrollReveal.stories.jsx",
+      "visualContext": ["hero", "callout", "scroll-reveal"],
+      "moodTags": ["dynamic", "smooth", "modern"],
+      "adaptationRules": {
+        "variants": ["Default", "NoBlur", "ByCharacter", "Subtle"]
+      }
+    },
+    {
+      "id": "scroll-float",
+      "storyFile": "../src/components/TextAnimations/ScrollFloat/ScrollFloat.stories.jsx",
+      "visualContext": ["hero", "callout", "scroll-reveal"],
+      "moodTags": ["playful", "dynamic", "smooth"],
+      "adaptationRules": {
+        "variants": ["Default", "ByCharacter", "Fast", "Bouncy"]
+      }
+    },
+    {
+      "id": "scroll-velocity",
+      "storyFile": "../src/components/TextAnimations/ScrollVelocity/ScrollVelocity.stories.jsx",
+      "visualContext": ["hero", "marquee", "showcase"],
+      "moodTags": ["dynamic", "modern", "playful"],
+      "adaptationRules": {
+        "variants": ["Default", "Fast", "RightDirection"]
+      }
+    },
+    {
+      "id": "falling-text",
+      "storyFile": "../src/components/TextAnimations/FallingText/FallingText.stories.jsx",
+      "visualContext": ["hero", "feedback", "playground"],
+      "moodTags": ["playful", "chaotic", "dynamic"],
+      "adaptationRules": {
+        "variants": ["Default", "AutoTrigger", "LightGravity", "ScrollTrigger"]
+      }
+    },
+    {
+      "id": "decrypted-text",
+      "storyFile": "../src/components/TextAnimations/DecryptedText/DecryptedText.stories.jsx",
+      "visualContext": ["hero", "hover", "feedback"],
+      "moodTags": ["playful", "tech", "edgy"],
+      "adaptationRules": {
+        "variants": ["Default", "HoverTrigger", "Instant", "Loop", "CustomChars"]
+      }
+    },
+    {
+      "id": "text-type",
+      "storyFile": "../src/components/TextAnimations/TextType/TextType.stories.jsx",
+      "visualContext": ["hero", "feedback", "callout"],
+      "moodTags": ["dynamic", "playful", "modern"],
+      "adaptationRules": {
+        "variants": ["Default", "NoCursor", "Slow", "NoLoop"]
+      }
+    },
+    {
+      "id": "true-focus",
+      "storyFile": "../src/components/TextAnimations/TrueFocus/TrueFocus.stories.jsx",
+      "visualContext": ["hero", "callout", "headline"],
+      "moodTags": ["dynamic", "modern", "elegant"],
+      "adaptationRules": {
+        "variants": ["Default", "Slow", "ManualMode", "LargeBlur"]
+      }
+    },
+    {
+      "id": "variable-proximity",
+      "storyFile": "../src/components/TextAnimations/VariableProximity/VariableProximity.stories.jsx",
+      "visualContext": ["hero", "headline", "showcase"],
+      "moodTags": ["dynamic", "experimental", "modern"],
+      "adaptationRules": {
+        "variants": ["Default", "Wide", "NarrowRange", "SlowResponsiveness"]
+      }
+    },
+    {
+      "id": "count-up",
+      "storyFile": "../src/components/TextAnimations/CountUp/CountUp.stories.jsx",
+      "visualContext": ["hero", "stats", "feedback"],
+      "moodTags": ["minimal", "clean", "functional"],
+      "adaptationRules": {
+        "variants": ["Default", "LargeNumber", "Fast", "WithDelay"]
+      }
+    },
+    {
+      "id": "text-cursor",
+      "storyFile": "../src/components/TextAnimations/TextCursor/TextCursor.stories.jsx",
+      "visualContext": ["hero", "playground", "feedback"],
+      "moodTags": ["playful", "dynamic", "experimental"],
+      "adaptationRules": {
+        "variants": ["Default", "CustomText", "ManyPoints", "NoFloat"]
+      }
+    },
+    {
+      "id": "ascii-text",
+      "storyFile": "../src/components/TextAnimations/ASCIIText/ASCIIText.stories.jsx",
+      "visualContext": ["hero", "headline", "showcase"],
+      "moodTags": ["tech", "edgy", "experimental"],
+      "adaptationRules": {
+        "variants": ["Default", "NoWaves"]
+      }
+    },
+    {
+      "id": "star-border",
+      "storyFile": "../src/components/Animations/StarBorder/StarBorder.stories.jsx",
+      "visualContext": ["hero", "callout", "button"],
+      "moodTags": ["premium", "dynamic", "modern"],
+      "adaptationRules": {
+        "variants": ["Default", "Blue", "Fast", "Thick", "AsDiv"]
+      }
+    },
+    {
+      "id": "glare-hover",
+      "storyFile": "../src/components/Animations/GlareHover/GlareHover.stories.jsx",
+      "visualContext": ["card", "showcase", "hover"],
+      "moodTags": ["modern", "sleek", "premium"],
+      "adaptationRules": {
+        "variants": ["Default", "CustomGlare", "LargeGlare", "PlayOnce"]
+      }
+    },
+    {
+      "id": "noise",
+      "storyFile": "../src/components/Animations/Noise/Noise.stories.jsx",
+      "visualContext": ["background", "overlay", "fullscreen"],
+      "moodTags": ["grunge", "film", "texture"],
+      "adaptationRules": {
+        "variants": ["Default", "Subtle", "FineGrain", "Static"]
+      }
+    },
+    {
+      "id": "magnet",
+      "storyFile": "../src/components/Animations/Magnet/Magnet.stories.jsx",
+      "visualContext": ["card", "button", "hover"],
+      "moodTags": ["playful", "dynamic", "interactive"],
+      "adaptationRules": {
+        "variants": ["Default", "Strong", "Weak", "Disabled"]
+      }
+    },
+    {
+      "id": "magnet-lines",
+      "storyFile": "../src/components/Animations/MagnetLines/MagnetLines.stories.jsx",
+      "visualContext": ["background", "showcase", "cursor"],
+      "moodTags": ["dynamic", "tech", "interactive"],
+      "adaptationRules": {
+        "variants": ["Default", "ManyLines", "ShortLines", "SlowRotation"]
+      }
+    },
+    {
+      "id": "click-spark",
+      "storyFile": "../src/components/Animations/ClickSpark/ClickSpark.stories.jsx",
+      "visualContext": ["button", "feedback", "interaction"],
+      "moodTags": ["playful", "dynamic", "feedback"],
+      "adaptationRules": {
+        "variants": ["Default", "ManySparks", "Large", "DifferentColor"]
+      }
+    },
+    {
+      "id": "fade-content",
+      "storyFile": "../src/components/Animations/FadeContent/FadeContent.stories.jsx",
+      "visualContext": ["scroll-reveal", "content", "transition"],
+      "moodTags": ["smooth", "clean", "minimal"],
+      "adaptationRules": {
+        "variants": ["Default", "Slow", "Delayed", "BottomFade"]
+      }
+    },
+    {
+      "id": "orbit-images",
+      "storyFile": "../src/components/Animations/OrbitImages/OrbitImages.stories.jsx",
+      "visualContext": ["showcase", "hero", "gallery"],
+      "moodTags": ["dynamic", "playful", "modern"],
+      "adaptationRules": {
+        "variants": ["Default", "SpeedUp", "LargerOrbit", "SixImages"]
+      }
+    },
+    {
+      "id": "electric-border",
+      "storyFile": "../src/components/Animations/ElectricBorder/ElectricBorder.stories.jsx",
+      "visualContext": ["border", "container", "card"],
+      "moodTags": ["edgy", "tech", "dynamic"],
+      "adaptationRules": {
+        "variants": ["Default", "Fast", "HighChaos", "Blue"]
+      }
+    },
+    {
+      "id": "cursor-grid",
+      "storyFile": "../src/components/Animations/CursorGrid/CursorGrid.stories.jsx",
+      "visualContext": ["background", "cursor", "showcase"],
+      "moodTags": ["dynamic", "tech", "interactive"],
+      "adaptationRules": {
+        "variants": ["Default", "SmallGrid", "LargeCells", "DifferentColor"]
+      }
+    },
+    {
+      "id": "gradual-blur",
+      "storyFile": "../src/components/Animations/GradualBlur/GradualBlur.stories.jsx",
+      "visualContext": ["scroll-reveal", "content", "transition"],
+      "moodTags": ["smooth", "clean", "modern"],
+      "adaptationRules": {
+        "variants": ["Default", "HeavyBlur", "QuickTransition"]
+      }
+    },
+    {
+      "id": "logo-loop",
+      "storyFile": "../src/components/Animations/LogoLoop/LogoLoop.stories.jsx",
+      "visualContext": ["marquee", "showcase", "gallery"],
+      "moodTags": ["dynamic", "playful", "modern"],
+      "adaptationRules": {
+        "variants": ["Default", "Fast", "RightDirection", "ManyItems"]
+      }
+    },
+    {
+      "id": "metallic-paint",
+      "storyFile": "../src/components/Animations/MetallicPaint/MetallicPaint.stories.jsx",
+      "visualContext": ["background", "card", "showcase"],
+      "moodTags": ["premium", "sleek", "dynamic"],
+      "adaptationRules": {
+        "variants": ["Default", "Gold", "Silver", "FastShimmer"]
+      }
+    },
+    {
+      "id": "splash-cursor",
+      "storyFile": "../src/components/Animations/SplashCursor/SplashCursor.stories.jsx",
+      "visualContext": ["background", "cursor", "fullscreen"],
+      "moodTags": ["playful", "dynamic", "colorful"],
+      "adaptationRules": {
+        "variants": ["Default", "Rainbow", "LargeSplats", "SingleColor"]
+      }
+    },
+    {
+      "id": "blob-cursor",
+      "storyFile": "../src/components/Animations/BlobCursor/BlobCursor.stories.jsx",
+      "visualContext": ["cursor", "background", "fullscreen"],
+      "moodTags": ["playful", "dynamic", "smooth"],
+      "adaptationRules": {
+        "variants": ["Default", "LargeBlob", "FadeMode", "DifferentColor"]
+      }
+    },
+    {
+      "id": "pixel-transition",
+      "storyFile": "../src/components/Animations/PixelTransition/PixelTransition.stories.jsx",
+      "visualContext": ["transition", "showcase", "image"],
+      "moodTags": ["modern", "dynamic", "playful"],
+      "adaptationRules": {
+        "variants": ["Default", "FineGrid", "Slow", "Fast"]
+      }
+    },
+    {
+      "id": "animated-content",
+      "storyFile": "../src/components/Animations/AnimatedContent/AnimatedContent.stories.jsx",
+      "visualContext": ["hero", "scroll-reveal", "callout"],
+      "moodTags": ["smooth", "dynamic", "modern"],
+      "adaptationRules": {
+        "variants": ["Default", "ByWord", "Fast", "Slow"]
+      }
+    },
+    {
+      "id": "crosshair",
+      "storyFile": "../src/components/Animations/Crosshair/Crosshair.stories.jsx",
+      "visualContext": ["cursor", "fullscreen", "interaction"],
+      "moodTags": ["tech", "clean", "functional"],
+      "adaptationRules": {
+        "variants": ["Default", "Large", "Thin", "DifferentColor"]
+      }
+    },
+    {
+      "id": "cubes",
+      "storyFile": "../src/components/Animations/Cubes/Cubes.stories.jsx",
+      "visualContext": ["background", "showcase", "fullscreen"],
+      "moodTags": ["modern", "dynamic", "playful"],
+      "adaptationRules": {
+        "variants": ["Default", "LargeGrid", "BigCubes", "Monochrome"]
+      }
+    },
+    {
+      "id": "image-trail",
+      "storyFile": "../src/components/Animations/ImageTrail/ImageTrail.stories.jsx",
+      "visualContext": ["cursor", "gallery", "showcase"],
+      "moodTags": ["playful", "dynamic", "modern"],
+      "adaptationRules": {
+        "variants": ["Default", "LongTrail", "SmallImages", "Fast"]
+      }
+    },
+    {
+      "id": "sticker-peel",
+      "storyFile": "../src/components/Animations/StickerPeel/StickerPeel.stories.jsx",
+      "visualContext": ["card", "hover", "interaction"],
+      "moodTags": ["playful", "clean", "modern"],
+      "adaptationRules": {
+        "variants": ["Default", "LargePeel", "DarkPeel", "NoHover"]
+      }
+    },
+    {
+      "id": "target-cursor",
+      "storyFile": "../src/components/Animations/TargetCursor/TargetCursor.stories.jsx",
+      "visualContext": ["cursor", "fullscreen", "interaction"],
+      "moodTags": ["tech", "clean", "precise"],
+      "adaptationRules": {
+        "variants": ["Default", "Large", "NoClickEffect", "Red"]
+      }
+    }
+  ]
+}

@@ -10,7 +10,7 @@
         "--project-dir",
         "/run/media/stefan/Nuevo vol/Proyectos/CortexDesign"
       ],
-      "_description": "Graphify \u2014 knowledge graph queries via MCP"
+      "_description": "Graphify — knowledge graph queries via MCP"
     },
     "webfetch": {
       "type": "builtin",
@@ -21,7 +21,17 @@
       "type": "remote",
       "url": "http://localhost:6006/mcp",
       "enabled": true,
-      "_description": "Cortex Design Library \u2014 component docs, props, and stories via Storybook MCP. Available when `npm run storybook` is running."
+      "_description": "Cortex Design Library — component docs, props, and stories via Storybook MCP. Available when `npm run storybook` is running."
+    }
+  },
+  "agent": {
+    "design-agent-lead": {
+      "description": "Lead design agent — conversational design direction + visual token emission (11 CSS custom properties)",
+      "mode": "subagent"
+    },
+    "component-adapter": {
+      "description": "Component catalog query + token adaptation engine — deterministic, reads .storybook/component-catalog.json",
+      "mode": "subagent"
     }
   },
   "plugin": [
