@@ -1,0 +1,260 @@
+/* ══════════════════════════════════════════
+   HeroReveal — composición atómica
+
+   CR(1)  →  FXCR(1)  →  CR(2)  →  FXCR(2)+CR(3)  →  FXSR(1)  →  SR(2)
+   fondo     cortinas     vector    shrink + texto    split     imágenes
+   crema     cierran      vertical  llegan simultáneo paneles   reveladas
+                                     → rota             se deslizan
+
+   FXCR(2) y CR(3) ocurren en la misma fase (p3):
+   el vector se encoge Y el texto llega desde los costados al mismo tiempo.
+   ══════════════════════════════════════════ */
+
+/* ── Contenedor ── */
+.hr {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background: #f6f5ef;
+}
+
+/* ═══════════════════════════════════════
+   CR(1): FONDO CREMA
+   ═══════════════════════════════════════ */
+.hr-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #f6f5ef;
+}
+
+/* ═══════════════════════════════════════
+   FXCR(1): CORTINAS
+   ═══════════════════════════════════════ */
+.hr-curtain {
+  position: absolute;
+  top: 0;
+  width: 50vw;
+  height: 100%;
+  z-index: 10;
+  background: var(--cr-curtain, #8b0000);
+  will-change: transform;
+  transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.hr-curtain--left {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.hr-curtain--right {
+  right: 0;
+  transform: translateX(100%);
+}
+
+.hr--p1 .hr-curtain--left,
+.hr--p1 .hr-curtain--right,
+.hr--p2 .hr-curtain--left,
+.hr--p2 .hr-curtain--right,
+.hr--p3 .hr-curtain--left,
+.hr--p3 .hr-curtain--right,
+.hr--p4 .hr-curtain--left,
+.hr--p4 .hr-curtain--right {
+  transform: translateX(0);
+}
+
+/* ═══════════════════════════════════════
+   CR(2): VECTOR
+   ═══════════════════════════════════════ */
+.hr-vector {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 15;
+  width: 50px;
+  height: 100vh;
+  background: var(--ssr-panel, #f6f5ef);
+  pointer-events: none;
+  transform-origin: center center;
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transition:
+    opacity 0.4s ease,
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+/* p1: aparece durante cierre de cortinas */
+.hr--p1 .hr-vector {
+  opacity: 1;
+  transition: opacity 0.4s ease 0.6s,
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0s;
+}
+
+/* p2: rota */
+.hr--p2 .hr-vector {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* p3+: shrink */
+.hr--p3 .hr-vector,
+.hr--p4 .hr-vector {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(90deg) scaleY(0);
+}
+
+/* ═══════════════════════════════════════
+   FXCR(2) + CR(3) + FXSR(1): SPLIT PANELS
+   ═══════════════════════════════════════ */
+.hr-split {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* p3: paneles aparecen sobre cortinas, texto llega desde costados */
+.hr--p3 .hr-split,
+.hr--p4 .hr-split {
+  z-index: 25;
+  opacity: 1;
+}
+
+/* Imágenes */
+.hr-split-img {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hr-split-img[data-side="left"] { left: 0; }
+.hr-split-img[data-side="right"] { right: 0; }
+
+/* Paneles */
+.hr-split-panel {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 2;
+  background: var(--cr-curtain, #8b0000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hr-split-panel--left { left: 0; }
+.hr-split-panel--right { right: 0; }
+
+/* p4: paneles se deslizan */
+.hr--p4 .hr-split-panel--left {
+  transform: translateY(100%);
+}
+
+.hr--p4 .hr-split-panel--right {
+  transform: translateY(-100%);
+}
+
+/* ── Texto dentro de paneles ── */
+.hr-panel-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 380px;
+}
+
+.hr-panel-content--right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.hr-panel-word {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  color: var(--ssr-panel, #f6f5ef);
+  font-weight: normal;
+  line-height: 1;
+  margin: 0;
+  white-space: nowrap;
+  transition:
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.6s ease;
+}
+
+/* Estado inicial: texto fuera de posición */
+.hr-split-panel--left .hr-panel-word {
+  transform: translateX(clamp(-50px, -6vw, -100px));
+  opacity: 0;
+}
+
+.hr-split-panel--right .hr-panel-word {
+  transform: translateX(clamp(50px, 6vw, 100px));
+  opacity: 0;
+}
+
+/* p3: texto llega a posición (simultáneo con shrink del vector) */
+.hr--p3 .hr-split-panel--left .hr-panel-word,
+.hr--p3 .hr-split-panel--right .hr-panel-word {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.hr-panel-desc {
+  font-family: sans-serif;
+  font-size: clamp(0.55rem, 1vw, 0.7rem);
+  color: var(--ssr-panel, #f6f5ef);
+  opacity: 0;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  margin-top: clamp(0.8rem, 1.5vw, 1.2rem);
+  max-width: 260px;
+  transition: opacity 0.8s ease;
+}
+
+.hr-panel-content--right .hr-panel-desc {
+  text-align: right;
+}
+
+/* p3: descripciones aparecen con delay */
+.hr--p3 .hr-panel-desc {
+  opacity: 1;
+  transition-delay: 0.3s;
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════ */
+@media (max-width: 768px) {
+  .hr-panel-content,
+  .hr-panel-content--right {
+    align-items: center;
+    text-align: center;
+  }
+  .hr-panel-content--right .hr-panel-desc { text-align: center; }
+  .hr-panel-word { font-size: clamp(2rem, 12vw, 3rem); }
+
+  .hr-split-img,
+  .hr-split-panel {
+    width: 100%;
+    height: 50%;
+  }
+  .hr-split-img[data-side="left"],
+  .hr-split-panel--left {
+    top: 0;
+    left: 0;
+    right: auto;
+  }
+  .hr-split-img[data-side="right"],
+  .hr-split-panel--right {
+    top: 50%;
+    left: 0;
+    right: auto;
+  }
+}

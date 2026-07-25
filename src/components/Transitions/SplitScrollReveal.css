@@ -1,0 +1,100 @@
+/* ══════════════════════════════════════════
+   SplitScrollReveal — auto-play panel reveal
+   
+   Two panels (left/right) slide apart vertically:
+   Left panel  → translateY(0 → +100%)
+   Right panel → translateY(0 → -100%)
+   
+   Triggered by class addition (no scroll).
+   ══════════════════════════════════════════ */
+
+.ssr {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+
+/* ── Imágenes ── */
+.ssr-image {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.ssr-image[data-side="left"] {
+  left: 0;
+}
+
+.ssr-image[data-side="right"] {
+  right: 0;
+}
+
+/* ── Paneles overlay ── */
+.ssr-panel {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 2;
+  background: var(--ssr-panel, #f6f5ef);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ssr-panel--left {
+  left: 0;
+}
+
+.ssr-panel--right {
+  right: 0;
+}
+
+/* ── Título ── */
+.ssr-panel__title {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  color: var(--ssr-accent, #C8102E);
+  text-align: center;
+  line-height: 1.2;
+  max-width: 80%;
+}
+
+/* ═══ REVEALED ═══ */
+.ssr--revealed .ssr-panel--left {
+  transform: translateY(100%);
+}
+
+.ssr--revealed .ssr-panel--right {
+  transform: translateY(-100%);
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 768px) {
+  .ssr-image,
+  .ssr-panel {
+    width: 100%;
+    height: 50%;
+  }
+
+  .ssr-image[data-side="left"],
+  .ssr-panel--left {
+    top: 0;
+    left: 0;
+    right: auto;
+  }
+
+  .ssr-image[data-side="right"],
+  .ssr-panel--right {
+    top: 50%;
+    left: 0;
+    right: auto;
+  }
+}

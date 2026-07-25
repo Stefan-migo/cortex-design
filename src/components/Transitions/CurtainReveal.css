@@ -1,0 +1,249 @@
+/* ══════════════════════════════════════════
+   CurtainReveal — side curtains + pivot vector
+   + text convergence.
+   
+   Sequence:
+     1. Curtains come from edges, meet at center
+     2. Vector appears vertically (opacity 0→1)
+     3. Vector rotates from vertical (90°) to horizontal (0°)
+     4. Vector shrinks length; texts converge toward center
+     5. Descriptions fade in
+   ══════════════════════════════════════════ */
+
+/* ── Container ── */
+.cr {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #f6f5ef;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* ═══════════════════════════════════════
+   1. CORTINAS LATERALES
+   Vienen desde los bordes y se encuentran
+   en el centro.
+   ═══════════════════════════════════════ */
+.cr-curtain {
+  position: absolute;
+  top: 0;
+  width: 50vw;
+  height: 100%;
+  z-index: 5;
+  background: var(--cr-curtain, #8b0000);
+  will-change: transform;
+  transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.cr-curtain--left {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.cr-curtain--right {
+  right: 0;
+  transform: translateX(100%);
+}
+
+.cr--curtains-closed .cr-curtain--left,
+.cr--curtains-closed .cr-curtain--right {
+  transform: translateX(0);
+}
+
+/* ═══════════════════════════════════════
+   2. VECTOR CENTRAL
+   Empieza oculto (opacity: 0), en posición
+   VERTICAL (rotate(0deg) sobre un rectángulo
+   4px × 100vh = línea vertical fina).
+   
+   Fase curtains-closed: aparece vertical
+     (con delay para que las cortinas terminen).
+   Fase rotating: rota 90° → HORIZONTAL.
+   Fase shrinking: scaleY(0) encoge el largo
+     horizontal hasta desaparecer.
+   ═══════════════════════════════════════ */
+.cr-vector {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 15;
+  width: 10px;
+  height: 60vh;
+  background: var(--cr-accent, #d11c1c);
+  pointer-events: none;
+  transform-origin: center center;
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(0deg); /* VERTICAL */
+  transition:
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.4s ease;
+  will-change: transform, opacity;
+}
+
+/* Aparece VERTICAL antes de que las cortinas terminen de cerrarse.
+   Con delay 0.8s desde que se agrega la clase (t=200ms), aparece
+   a t≈1000ms y llega a 100% a t≈1400ms — justo cuando las cortinas
+   completan su animación (1.2s desde t=200ms). */
+.cr--curtains-closed .cr-vector {
+  opacity: 1;
+  transition-delay: 0.8s;
+}
+
+/* Rota de VERTICAL (0°) a HORIZONTAL (90°).
+   scaleY(1) mantiene la consistencia de funciones
+   para que la transición siguiente sea suave. */
+.cr--rotating .cr-vector {
+  transform: translate(-50%, -50%) rotate(90deg) scaleY(1);
+}
+
+/* Se encoge: scaleY(0) reduce el largo horizontal a 0.
+   Con rotate(90deg) activo, el eje Y local apunta en
+   dirección horizontal global — encoger Y = acortar
+   el largo. */
+.cr--shrinking .cr-vector {
+  transform: translate(-50%, -50%) rotate(90deg) scaleY(0);
+  opacity: 0;
+  transition-delay: 0s;
+}
+
+/* ═══════════════════════════════════════
+   3. TEXTOS
+   Convergen al centro mientras el vector
+   se encoge.
+   ═══════════════════════════════════════ */
+.cr-content {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2rem, 6vw, 5rem);
+  padding: 2rem;
+  pointer-events: none;
+}
+
+.cr-block {
+  display: flex;
+  flex-direction: column;
+  max-width: 380px;
+}
+
+.cr-block--left {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.cr-block--right {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.cr-word {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  color: var(--cr-accent, #d11c1c);
+  font-weight: normal;
+  line-height: 1;
+  margin: 0;
+  white-space: nowrap;
+  transition:
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.8s ease;
+  will-change: transform, opacity;
+}
+
+/* Estado inicial: palabras alejadas del centro */
+.cr-word--left {
+  transform: translateX(clamp(-50px, -6vw, -100px));
+  opacity: 0;
+}
+
+.cr-word--right {
+  transform: translateX(clamp(50px, 6vw, 100px));
+  opacity: 0;
+}
+
+/* Convergen al centro cuando el vector se encoge */
+.cr--shrinking .cr-word--left,
+.cr--shrinking .cr-word--right {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════
+   4. DESCRIPCIONES
+   ═══════════════════════════════════════ */
+.cr-desc {
+  font-family: sans-serif;
+  font-size: clamp(0.55rem, 1vw, 0.7rem);
+  color: #555;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  margin-top: clamp(0.8rem, 1.5vw, 1.2rem);
+  max-width: 260px;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.cr-desc--left {
+  text-align: right;
+}
+
+.cr-desc--right {
+  text-align: left;
+}
+
+.cr--complete .cr-desc {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════
+   REPLAY BUTTON
+   ═══════════════════════════════════════ */
+.cr-replay {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  padding: 8px 20px;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.85);
+  color: #333;
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cr-replay:hover {
+  background: #fff;
+  border-color: rgba(0,0,0,0.35);
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════ */
+@media (max-width: 768px) {
+  .cr-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .cr-block--left,
+  .cr-block--right {
+    align-items: center;
+    text-align: center;
+  }
+
+  .cr-desc--left,
+  .cr-desc--right {
+    text-align: center;
+  }
+
+  .cr-word {
+    font-size: clamp(2rem, 12vw, 3rem);
+  }
+}

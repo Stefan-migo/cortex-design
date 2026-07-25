@@ -1,0 +1,125 @@
+/* ═══════════════════════════════════════
+   Curtain Transitions — CSS-only overlays
+   ═══════════════════════════════════════ */
+
+.ctrans {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.ctrans__page {
+  position: relative;
+  width: 100%;
+}
+.ctrans__btn {
+  display: block;
+  margin: 1rem auto 0;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-family: inherit; font-size: 0.85rem;
+  cursor: pointer;
+}
+.ctrans__btn:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.25);
+}
+
+/* ═══════════════════════════════════════
+   1. Doors
+   ═══════════════════════════════════════ */
+.ctrans-doors {
+  position: absolute; inset: 0;
+  display: flex;
+  pointer-events: none;
+  z-index: 10;
+}
+.ctrans-doors__panel {
+  flex: 1;
+  background: #3b82f6;
+  transition: transform var(--dur, 0.5s) cubic-bezier(0.7,0,0.3,1);
+}
+.ctrans-doors__left  { transform-origin: left;  transform: scaleX(0); }
+.ctrans-doors__right { transform-origin: right; transform: scaleX(0); }
+.ctrans-doors.active .ctrans-doors__left  { transform: scaleX(1); }
+.ctrans-doors.active .ctrans-doors__right { transform: scaleX(1); }
+
+/* ═══════════════════════════════════════
+   2. Stagger Columns
+   ═══════════════════════════════════════ */
+.ctrans-stagger {
+  position: absolute; inset: 0;
+  display: flex;
+  pointer-events: none;
+  z-index: 10;
+}
+.ctrans-stagger__col {
+  flex: 1;
+  background: #f43f5e;
+  transform: translateY(-100%);
+  transition: transform var(--dur, 0.5s) cubic-bezier(0.77,0,0.175,1);
+  transition-delay: calc(var(--i) * 0.06s);
+}
+.ctrans-stagger.active .ctrans-stagger__col {
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════
+   3. Clip Ellipse Wipe
+   ═══════════════════════════════════════ */
+.ctrans-clip {
+  position: absolute; inset: 0;
+  background: #ec4899;
+  pointer-events: none;
+  z-index: 10;
+  clip-path: ellipse(0% 100% at 0% 50%);
+  transition: clip-path var(--dur, 0.6s) cubic-bezier(0.65,0,0.35,1);
+}
+.ctrans-clip.active {
+  clip-path: ellipse(150% 150% at 0% 50%);
+}
+
+/* ═══════════════════════════════════════
+   4. Pixel Grid
+   ═══════════════════════════════════════ */
+.ctrans-pixels {
+  position: absolute; inset: 0;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  pointer-events: none;
+  z-index: 10;
+}
+.ctrans-pixels__cell {
+  background: #a855f7;
+  transform: scale(0);
+  transition: transform 0.25s ease-out;
+  transition-delay: calc(var(--i) * 0.012s);
+}
+.ctrans-pixels.active .ctrans-pixels__cell {
+  transform: scale(1.05);
+}
+
+/* ═══════════════════════════════════════
+   5. Shutter Slats
+   ═══════════════════════════════════════ */
+.ctrans-shutter {
+  position: absolute; inset: 0;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  z-index: 10;
+}
+.ctrans-shutter__slat {
+  flex: 1;
+  background: #eab308;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.35s ease-in-out;
+  transition-delay: calc(var(--i) * 0.05s);
+}
+.ctrans-shutter.active .ctrans-shutter__slat {
+  transform: scaleY(1);
+}
