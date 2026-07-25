@@ -1,6 +1,7 @@
 export const categories = [
   { id: 'all', name: 'All' },
   { id: 'text-animations', name: 'Text Animations' },
+
   { id: 'animations', name: 'Animations' },
   { id: 'components', name: 'Components' },
   { id: 'backgrounds', name: 'Backgrounds' },
@@ -135,6 +136,370 @@ Key implementation details:
 - Touch support with preventDefault
 
 Export as named function: FuzzyText`,
+  },
+
+  /* ── Animations ── */
+  {
+    id: 'animated-content',
+    name: 'AnimatedContent',
+    category: 'animations',
+    description: 'Content that animates in on scroll with per-letter or per-word staggered reveal.',
+    tags: ['scroll', 'reveal', 'stagger'],
+    source: 'react-bits',
+    import: () => import('../components/Animations/AnimatedContent/AnimatedContent'),
+    controls: [
+      { name: 'children', label: 'Text', type: 'text', default: 'Hello World' },
+      { name: 'splitBy', label: 'Split By', type: 'select', options: ['chars', 'words'], default: 'chars' },
+      { name: 'staggerMs', label: 'Stagger (ms)', type: 'range', min: 10, max: 200, step: 10, default: 50 },
+      { name: 'duration', label: 'Duration (s)', type: 'range', min: 0.3, max: 3, step: 0.1, default: 1 },
+      { name: 'threshold', label: 'Threshold', type: 'range', min: 0, max: 1, step: 0.05, default: 0 },
+    ],
+    prompt: `Create an AnimatedContent component that staggers in text characters or words on scroll.
+
+Technique: IntersectionObserver triggers visibility. Each char/word is a <span> with CSS custom property --i for its index. A CSS transition-delay: calc(var(--i) * var(--stagger-ms) * 1ms) creates the stagger. No @keyframes needed.
+
+Key implementation details:
+- Split children string by chars or words into span.animated-content__item
+- Each span gets style={{ '--i': index }} for stagger delay
+- IntersectionObserver disconnects after first trigger (one-shot)
+- CSS: .animated-content__item has opacity:0 + translateY(20px) transition
+- On visible class: opacity:1 + translateY(0)
+- transition-delay controlled by calc(var(--i) * var(--stagger-ms, 50) * 1ms)
+
+Export as named function: AnimatedContent`,
+  },
+  {
+    id: 'crosshair',
+    name: 'Crosshair',
+    category: 'animations',
+    description: 'A dynamic crosshair that follows the cursor with four line segments and a center ring.',
+    tags: ['cursor', 'crosshair', 'reticle'],
+    source: 'react-bits',
+    import: () => import('../components/Animations/Crosshair/Crosshair'),
+    controls: [
+      { name: 'color', label: 'Color', type: 'color', default: '#5227FF' },
+      { name: 'size', label: 'Size (px)', type: 'range', min: 10, max: 80, step: 5, default: 20 },
+      { name: 'thickness', label: 'Thickness', type: 'range', min: 1, max: 6, step: 1, default: 2 },
+      { name: 'gap', label: 'Gap (px)', type: 'range', min: 0, max: 30, step: 1, default: 5 },
+    ],
+    prompt: `Create a Crosshair component that follows the cursor with HTML divs.
+
+Technique: Track mouse via mousemove event. Set CSS custom properties --cx/--cy on the container. Absolutely positioned divs for four line segments and a center ring use calc() referencing --cx and --cy. No canvas needed.
+
+Key implementation details:
+- Container position:fixed, inset:0, pointer-events:none
+- Four div segments positioned via calc(--cx ± offset) and calc(--cy ± offset)
+- Center ring div with border-radius:50% and border
+- size prop controls total crosshair span, gap controls empty center space
+
+Export as named function: Crosshair`,
+  },
+  {
+    id: 'cubes',
+    name: 'Cubes',
+    category: 'animations',
+    description: 'A field of rotating 3D cubes built with pure CSS transforms that respond to cursor movement.',
+    tags: ['3d', 'css', 'grid'],
+    source: 'react-bits',
+    import: () => import('../components/Animations/Cubes/Cubes'),
+    controls: [
+      { name: 'rows', label: 'Rows', type: 'range', min: 1, max: 15, step: 1, default: 5 },
+      { name: 'cols', label: 'Cols', type: 'range', min: 1, max: 15, step: 1, default: 5 },
+      { name: 'size', label: 'Size (px)', type: 'range', min: 20, max: 150, step: 10, default: 60 },
+      { name: 'gap', label: 'Gap (px)', type: 'range', min: 0, max: 40, step: 2, default: 10 },
+      { name: 'color1', label: 'Color 1', type: 'color', default: '#5227FF' },
+      { name: 'color2', label: 'Color 2', type: 'color', default: '#FF6B6B' },
+    ],
+    prompt: `Create a Cubes component that renders a grid of 3D cubes using pure CSS transforms.
+
+Technique: CSS 3D transforms with perspective. Each cube has 6 child divs (front/back/left/right/top/bottom) positioned with translateZ, rotateY, and rotateX. The parent container uses perspective for depth. Mouse position drives rotateX/rotateY on the container.
+
+Key implementation details:
+- CSS grid layout for the cube field
+- Each cell uses perspective + transform-style:preserve-3d
+- Six faces per cube positioned in 3D space
+- color-mix() for face shading (darker sides, lighter top)
+- Mouse move maps clientX/clientY to rotation angles
+- Subtle floating animation via @keyframes cubes-float
+- Hover: scale up individual cube
+
+Export as named function: Cubes`,
+  },
+  {
+    id: 'image-trail',
+    name: 'ImageTrail',
+    category: 'animations',
+    description: 'Images follow the cursor with a trailing effect, fading and shrinking along the trail.',
+    tags: ['cursor', 'trail', 'gallery'],
+    source: 'react-bits',
+    import: () => import('../components/Animations/ImageTrail/ImageTrail'),
+    controls: [
+      { name: 'trailLength', label: 'Trail Length', type: 'range', min: 2, max: 30, step: 1, default: 8 },
+      { name: 'spacing', label: 'Spacing (px)', type: 'range', min: 5, max: 100, step: 5, default: 30 },
+      { name: 'size', label: 'Size (px)', type: 'range', min: 30, max: 200, step: 10, default: 100 },
+      { name: 'fadeAmount', label: 'Fade', type: 'range', min: 0, max: 1, step: 0.05, default: 0.3 },
+    ],
+    prompt: `Create an ImageTrail component where images follow the cursor with delayed positions.
+
+Technique: RAF loop tracks cursor position. An array stores the last N positions. Each frame, render images at each stored position with decreasing opacity and scale along the trail. DOM <img> elements are reused — no canvas.
+
+Key implementation details:
+- trailRef array stores {x, y, el} per position
+- RAF loop: push current position, shift if > trailLength
+- Each frame: update each img's left/top/opacity/transform based on index along trail
+- First image fully opaque, last most faded
+- Scale also decreases along trail direction
+- Container pointer-events:none, fixed fullscreen
+
+Export as named function: ImageTrail`,
+  },
+  {
+    id: 'sticker-peel',
+    name: 'StickerPeel',
+    category: 'animations',
+    description: 'A corner that peels back like a sticker on hover, revealing an under-layer.',
+    tags: ['peel', 'hover', 'corner'],
+    source: 'react-bits',
+    import: () => import('../components/Animations/StickerPeel/StickerPeel'),
+    controls: [
+      { name: 'peelColor', label: 'Peel Color', type: 'color', default: '#f0f0f0' },
+      { name: 'peelSize', label: 'Peel Size (%)', type: 'range', min: 10, max: 80, step: 5, default: 30 },
+      { name: 'hoverOnly', label: 'Hover Only', type: 'toggle', default: true },
+    ],
+    prompt: `Create a StickerPeel component with a hover-triggered corner peel effect.
+
+Technique: A corner div uses clip-path: polygon() to create the peel shape. On hover, clip-path transitions to reveal the full corner area. CSS transitions on clip-path and transform create the animation. No GSAP Draggable.
+
+Key implementation details:
+- Container position:relative, overflow:hidden
+- Corner div top:0 right:0 with clip-path: polygon(100% 0, 0 0, 100% 100%) (hidden)
+- On hover: transitions to polygon(100% 0, 0 0, 0 100%, 100% 100%)
+- Small rotation and scale on hover for lifted look
+- hoverOnly prop: when false, stays peeled by default
+
+Export as named function: StickerPeel`,
+  },
+  {
+    id: 'target-cursor',
+    name: 'TargetCursor',
+    category: 'animations',
+    description: 'A targeting reticle that follows the cursor with concentric rings and a click pulse effect.',
+    tags: ['cursor', 'reticle', 'target'],
+    source: 'react-bits',
+    import: () => import('../components/Animations/TargetCursor/TargetCursor'),
+    controls: [
+      { name: 'color', label: 'Color', type: 'color', default: '#5227FF' },
+      { name: 'ringCount', label: 'Ring Count', type: 'range', min: 1, max: 6, step: 1, default: 3 },
+      { name: 'size', label: 'Size (px)', type: 'range', min: 20, max: 120, step: 5, default: 40 },
+      { name: 'clickEffect', label: 'Click Effect', type: 'toggle', default: true },
+    ],
+    prompt: `Create a TargetCursor component that renders a targeting reticle following the cursor.
+
+Technique: mousemove sets CSS custom properties --cx/--cy. Absolutely positioned divs for each ring and the center dot reference these properties. On click, a CSS @keyframes animation scales up and fades out.
+
+Key implementation details:
+- Container position:fixed, inset:0, pointer-events:none
+- Rings are border-radius:50% divs with progressively larger size and transparency
+- Center dot at cursor position
+- Click: pulse div triggers @keyframes target-pulse (scale 0.5->2, opacity 0.6->0)
+- Force reflow via offsetWidth for re-triggerability
+
+Export as named function: TargetCursor`,
+  },
+  {
+    id: 'antigravity',
+    name: 'Antigravity',
+    category: 'animations',
+    description: 'Floating particles that drift upward like antigravity with mouse repulsion.',
+    tags: ['canvas', 'particles', 'mouse'],
+    source: 'react-bits',
+    import: () => import('../components/Animations/Antigravity/Antigravity'),
+    controls: [
+      { name: 'particleCount', label: 'Particles', type: 'range', min: 10, max: 200, step: 10, default: 50 },
+      { name: 'particleSize', label: 'Size', type: 'range', min: 1, max: 10, step: 1, default: 3 },
+      { name: 'speed', label: 'Speed', type: 'range', min: 0.1, max: 3, step: 0.1, default: 0.5 },
+      { name: 'mouseInfluence', label: 'Mouse Influence', type: 'toggle', default: true },
+      { name: 'color', label: 'Color', type: 'color', default: '#ffffff' },
+    ],
+    prompt: `Create an Antigravity component with floating particle on Canvas 2D.
+
+Technique: RAF loop on a fullscreen canvas. Spawn ~50 particles with random positions, sizes, and upward velocities. Each frame: move up with slight horizontal sin wobble. Mouse proximity pushes particles away (repulsion force). Particles wrap top-to-bottom and fade near edges.
+
+Export as named function: Antigravity`,
+  },
+  {
+    id: 'magic-rings',
+    name: 'MagicRings',
+    category: 'animations',
+    description: 'Expanding ring waves emanate from cursor position on Canvas 2D.',
+    tags: ['canvas', 'rings', 'mouse'],
+    source: 'react-bits',
+    import: () => import('../components/Animations/MagicRings/MagicRings'),
+    controls: [
+      { name: 'ringColor', label: 'Color', type: 'color', default: '#5227FF' },
+      { name: 'maxRings', label: 'Max Rings', type: 'range', min: 5, max: 80, step: 5, default: 20 },
+      { name: 'ringWidth', label: 'Width', type: 'range', min: 1, max: 10, step: 1, default: 2 },
+      { name: 'expansionSpeed', label: 'Speed', type: 'range', min: 0.5, max: 8, step: 0.5, default: 2 },
+      { name: 'rainbow', label: 'Rainbow', type: 'toggle', default: false },
+    ],
+    prompt: `Create a MagicRings component with expanding ring waves on Canvas 2D.
+
+Technique: On mousemove, spawn ring objects (cx, cy, radius, maxRadius, opacity). RAF loop expands each ring's radius and fades opacity. Remove rings when opacity hits 0 or radius exceeds maxRradius. Click spawns a burst of 3 rings.
+
+Export as named function: MagicRings`,
+  },
+  {
+    id: 'laser-flow',
+    name: 'LaserFlow',
+    category: 'animations',
+    description: 'Dynamic laser/beam flow effect with animated bezier curves.',
+    tags: ['canvas', 'beams', 'flow'],
+    source: 'react-bits',
+    import: () => import('../components/Animations/LaserFlow/LaserFlow'),
+    controls: [
+      { name: 'beamCount', label: 'Beams', type: 'range', min: 1, max: 12, step: 1, default: 3 },
+      { name: 'color', label: 'Color', type: 'color', default: '#ff3366' },
+      { name: 'speed', label: 'Speed', type: 'range', min: 0.1, max: 3, step: 0.1, default: 1 },
+      { name: 'width', label: 'Width', type: 'range', min: 1, max: 12, step: 1, default: 3 },
+    ],
+    prompt: `Create a LaserFlow component with flowing bezier curves on Canvas 2D.
+
+Technique: RAF loop draws cubic bezier curves from center to animated control points. Control points use sin() combinations for organic pseudo-noise. Gradient stroke with shadowBlur creates the glow effect. Each beam has a phase offset for variety.
+
+Export as named function: LaserFlow`,
+  },
+  {
+    id: 'shape-blur',
+    name: 'ShapeBlur',
+    category: 'animations',
+    description: 'Animated shapes with canvas filter blur creating a dreamy transition effect.',
+    tags: ['canvas', 'blur', 'shapes'],
+    source: 'react-bits',
+    import: () => import('../components/Animations/ShapeBlur/ShapeBlur'),
+    controls: [
+      { name: 'shapes', label: 'Shapes', type: 'range', min: 1, max: 10, step: 1, default: 3 },
+      { name: 'blurMin', label: 'Min Blur', type: 'range', min: 0, max: 30, step: 1, default: 0 },
+      { name: 'blurMax', label: 'Max Blur', type: 'range', min: 1, max: 60, step: 1, default: 20 },
+      { name: 'color', label: 'Color', type: 'color', default: '#5227FF' },
+      { name: 'speed', label: 'Speed', type: 'range', min: 0.1, max: 3, step: 0.1, default: 1 },
+    ],
+    prompt: `Create a ShapeBlur component with animated blurred shapes on Canvas 2D.
+
+Technique: Use Canvas 2D context.filter = 'blur(Xpx)' to render blurred circles. RAF loop oscillates the blur amount between blurMin and blurMax using sin(). Shapes orbit with phase offsets. Lower globalAlpha adds soft layering.
+
+Export as named function: ShapeBlur`,
+  },
+  {
+    id: 'pixel-trail',
+    name: 'PixelTrail',
+    category: 'animations',
+    description: 'Grid-snapped pixel trail following the cursor with fade effect.',
+    tags: ['canvas', 'trail', 'pixels'],
+    source: 'react-bits',
+    import: () => import('../components/Animations/PixelTrail/PixelTrail'),
+    controls: [
+      { name: 'trailLength', label: 'Trail Length', type: 'range', min: 5, max: 120, step: 5, default: 30 },
+      { name: 'pixelSize', label: 'Pixel Size', type: 'range', min: 2, max: 20, step: 1, default: 8 },
+      { name: 'color', label: 'Color', type: 'color', default: '#5227FF' },
+      { name: 'fadeSpeed', label: 'Fade Speed', type: 'range', min: 0.005, max: 0.1, step: 0.005, default: 0.03 },
+      { name: 'rainbow', label: 'Rainbow', type: 'toggle', default: false },
+    ],
+    prompt: `Create a PixelTrail component that draws grid-snapped squares following the cursor.
+
+Technique: On mousemove, push {x,y,opacity} to trail array. RAF loop draws fillRect for each trail entry with decreasing opacity. Positions snap to pixelSize grid via Math.floor(x / pixelSize) * pixelSize. Array.push + shift maintains trail length.
+
+Export as named function: PixelTrail`,
+  },
+  {
+    id: 'meta-balls',
+    name: 'MetaBalls',
+    category: 'animations',
+    description: 'Gooey metaball-like blobs with additive blending on Canvas 2D.',
+    tags: ['canvas', 'blobs', 'gooey'],
+    source: 'react-bits',
+    import: () => import('../components/Animations/MetaBalls/MetaBalls'),
+    controls: [
+      { name: 'ballCount', label: 'Balls', type: 'range', min: 2, max: 25, step: 1, default: 6 },
+      { name: 'color', label: 'Color', type: 'color', default: '#5227FF' },
+      { name: 'maxRadius', label: 'Max Radius', type: 'range', min: 20, max: 150, step: 10, default: 60 },
+      { name: 'speed', label: 'Speed', type: 'range', min: 0.1, max: 3, step: 0.1, default: 1 },
+    ],
+    prompt: `Create a MetaBalls component with gooey additive-blended circles on Canvas 2D.
+
+Technique: Spawn circles with radial gradients. Use globalCompositeOperation 'lighter' for additive blending that creates a soft gooey merge effect. Circles drift randomly and follow the mouse. Radial gradient (center color → transparent edge) softens the overlap.
+
+Export as named function: MetaBalls`,
+  },
+  {
+    id: 'ribbons',
+    name: 'Ribbons',
+    category: 'animations',
+    description: 'Flowing ribbon/tendril curves with gradient strokes and glow.',
+    tags: ['canvas', 'ribbons', 'flow'],
+    source: 'react-bits',
+    import: () => import('../components/Animations/Ribbons/Ribbons'),
+    controls: [
+      { name: 'ribbonCount', label: 'Ribbons', type: 'range', min: 1, max: 16, step: 1, default: 5 },
+      { name: 'color', label: 'Color', type: 'color', default: '#ff3366' },
+      { name: 'speed', label: 'Speed', type: 'range', min: 0.1, max: 3, step: 0.1, default: 1 },
+      { name: 'width', label: 'Width', type: 'range', min: 1, max: 12, step: 1, default: 4 },
+    ],
+    prompt: `Create a Ribbons component with flowing bezier curves across the screen.
+
+Technique: RAF loop generates control points along the x-axis with sin() combinations for organic wave motion. Draw smoothed curves via quadraticCurveTo. Linear gradient stroke fades edges to transparent. shadowBlur adds glow. Each ribbon has a phase offset.
+
+Export as named function: Ribbons`,
+  },
+  {
+    id: 'strands',
+    name: 'Strands',
+    category: 'animations',
+    description: 'Particle strands with physics simulation and mouse repulsion.',
+    tags: ['canvas', 'particles', 'physics', 'mouse'],
+    source: 'react-bits',
+    import: () => import('../components/Animations/Strands/Strands'),
+    controls: [
+      { name: 'strandCount', label: 'Strands', type: 'range', min: 5, max: 120, step: 5, default: 30 },
+      { name: 'segmentLength', label: 'Segment Length', type: 'range', min: 2, max: 30, step: 2, default: 10 },
+      { name: 'color', label: 'Color', type: 'color', default: '#ffffff' },
+      { name: 'mouseRadius', label: 'Mouse Radius', type: 'range', min: 30, max: 300, step: 10, default: 100 },
+    ],
+    prompt: `Create a Strands component with connected particle physics on Canvas 2D.
+
+Technique: Spawn particles with random positions. Each frame: apply gravity (+0.05 vy), damping (*0.98), and mouse repulsion. Particles bounce off canvas edges. Draw lines between all particle pairs within segmentLength*3 distance — opacity proportional to proximity.
+
+Export as named function: Strands`,
+  },
+  {
+    id: 'ghost-cursor',
+    name: 'GhostCursor',
+    category: 'animations',
+    description: 'Ghostly glowing trail that follows the cursor with smooth fade and additive blending on Canvas 2D.',
+    tags: ['canvas', 'cursor', 'trail', 'glow'],
+    source: 'react-bits',
+    import: () => import('../components/Animations/GhostCursor/GhostCursor'),
+    controls: [
+      { name: 'trailLength', label: 'Trail Length', type: 'range', min: 5, max: 200, step: 5, default: 50 },
+      { name: 'color', label: 'Color', type: 'color', default: '#B497CF' },
+      { name: 'size', label: 'Size (px)', type: 'range', min: 5, max: 80, step: 2, default: 20 },
+      { name: 'glowSize', label: 'Glow Size (px)', type: 'range', min: 5, max: 100, step: 5, default: undefined },
+    ],
+    prompt: `Create a GhostCursor component that draws a glowing trail behind the cursor on Canvas 2D.
+
+Technique: Track mouse position in a ref. Each frame, push current position to a trail array, shift if over trailLength. Draw filled circles at each trail position with decreasing opacity (head=opaque, tail=faded). Use globalCompositeOperation 'screen' for additive blending. shadowBlur + shadowColor creates the glow effect.
+
+Props: trailLength (50), color ('#B497CF'), size (20), glowSize (derived from size * 1.5), className. Canvas is fixed fullscreen with pointer-events:none.
+
+Export as named function: GhostCursor`,
+  },
+  {
+    id: 'voyeur-verite',
+    name: 'VoyeurVerite',
+    category: 'components',
+    description: 'Editorial landing page with scroll-driven narrative, clip-path mask carousel, and cinematic red-on-cream aesthetic. Features fixed nav, hero, definition columns, project grid, manifesto, pillars, and filmmaker carousel.',
+    tags: ['landing', 'showcase', 'editorial', 'cinematic'],
+    source: 'react-bits',
+    import: () => import('../sections/VoyeurVerite/VoyeurVerite'),
   },
 ]
 

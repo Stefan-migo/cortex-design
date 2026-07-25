@@ -1,13 +1,6 @@
 import glitchTextCSS from '../components/TextAnimations/GlitchText.css?raw'
 import curvedLoopCSS from '../components/TextAnimations/CurvedLoop.css?raw'
 
-/* Load JSX component files as raw strings via import.meta.glob */
-const jsxModules = import.meta.glob('../components/TextAnimations/*.jsx', {
-  query: '?raw',
-  import: 'default',
-  eager: true,
-})
-
 /* Convert PascalCase filename to kebab-case id: GlitchText → glitch-text */
 function nameToId(name) {
   return name.replace(/([A-Z])/g, '-$1').toLowerCase().replace(/^-/, '')
@@ -16,10 +9,30 @@ function nameToId(name) {
 /* Map: { 'glitch-text': { jsx: '...', css: '...' } } */
 const sourceMap = {}
 
-for (const [fileKey, content] of Object.entries(jsxModules)) {
-  /* fileKey: '../components/TextAnimations/GlitchText.jsx' */
-  const fileName = fileKey.split('/').pop().replace('.jsx', '') // 'GlitchText'
+/* Load JSX from flat TextAnimations/*.jsx files */
+const flatModules = import.meta.glob('../components/TextAnimations/*.jsx', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+})
+
+for (const [fileKey, content] of Object.entries(flatModules)) {
+  const fileName = fileKey.split('/').pop().replace('.jsx', '')
   const id = nameToId(fileName)
+  if (!sourceMap[id]) sourceMap[id] = {}
+  sourceMap[id].jsx = content
+}
+
+/* Load JSX from nested Animations subdirectories */
+const nestedModules = import.meta.glob('../components/Animations/!(*.jsx)/*.jsx', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+})
+
+for (const [fileKey, content] of Object.entries(nestedModules)) {
+  const dirName = fileKey.split('/').slice(-2, -1)[0]
+  const id = nameToId(dirName)
   if (!sourceMap[id]) sourceMap[id] = {}
   sourceMap[id].jsx = content
 }
