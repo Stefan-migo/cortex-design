@@ -1,0 +1,15 @@
+.image-trail {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.image-trail__img {
+  position: absolute;
+  object-fit: cover;
+  border-radius: 8px;
+  will-change: left, top, opacity, transform;
+  transition: none;
+  pointer-events: none;
+}

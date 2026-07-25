@@ -1,0 +1,4 @@
+.gradual-blur {
+  display: inline-block;
+  will-change: filter;
+}

@@ -1,0 +1,24 @@
+.blur-text {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.15em;
+}
+
+.blur-item {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(calc(20px * var(--dir-factor, -1)));
+  transition: opacity 0.4s ease-out, filter 0.4s ease-out, transform 0.4s ease-out;
+  transition-delay: calc(var(--i) * var(--stagger, 50ms));
+  font-size: clamp(2rem, 8vw, 6rem);
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.blur-text.blur-visible .blur-item {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}

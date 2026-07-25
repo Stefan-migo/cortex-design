@@ -1,0 +1,15 @@
+.variable-proximity {
+  display: inline-block;
+  font-size: clamp(2rem, 8vw, 6rem);
+  font-weight: 900;
+  color: #ffffff;
+  cursor: default;
+  user-select: none;
+}
+
+.vp-char {
+  display: inline;
+  /* ponytail: letter-spacing set inline via JS — no default.
+     Ceiling: no transition on spacing changes (instant RAF updates).
+     Upgrade: add transition: letter-spacing 0.1s ease for smoother feel. */
+}

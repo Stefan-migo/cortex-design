@@ -1,0 +1,13 @@
+.scrambled-text {
+  display: inline-block;
+  cursor: default;
+}
+
+.scrambled-char {
+  display: inline-block;
+  font-size: inherit;
+  line-height: inherit;
+  /* ponytail: no transition on char swaps — instant swap via textContent.
+     Ceiling: no cross-fade between scramble states.
+     Upgrade: add CSS transition on color/opacity with RAF timing. */
+}

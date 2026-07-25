@@ -1,0 +1,19 @@
+.crosshair {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.crosshair__line {
+  position: absolute;
+  background: var(--color);
+  will-change: left, top;
+  transition: none;
+}
+
+.crosshair__ring {
+  position: absolute;
+  will-change: left, top;
+  transition: none;
+}

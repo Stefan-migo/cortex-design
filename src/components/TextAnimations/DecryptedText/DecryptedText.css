@@ -1,0 +1,11 @@
+.decrypted-text {
+  display: inline-block;
+  font-size: clamp(2rem, 8vw, 6rem);
+  font-weight: 900;
+  color: #ffffff;
+  white-space: pre-wrap;
+}
+
+.dt-char {
+  display: inline-block;
+}

@@ -1,0 +1,9 @@
+.fade-content {
+  opacity: 0;
+  transform: translateY(var(--fade-y, 20px));
+}
+
+.fade-content--visible {
+  opacity: 1;
+  transform: translateY(0);
+}

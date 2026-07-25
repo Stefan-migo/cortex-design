@@ -1,0 +1,18 @@
+.shuffle-text {
+  display: inline-block;
+}
+
+.shuffle-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translate(var(--x, 0), var(--y, 0));
+  will-change: transform, opacity;
+}
+
+.shuffle-char.animate {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition: transform var(--duration, 0.35s) ease-out,
+              opacity var(--duration, 0.35s) ease-out;
+  transition-delay: calc(var(--i, 0) * var(--stagger, 30ms));
+}

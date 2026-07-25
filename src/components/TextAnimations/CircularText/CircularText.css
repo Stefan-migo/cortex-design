@@ -1,0 +1,45 @@
+.circular-text {
+  position: relative;
+  border-radius: 50%;
+  animation: spin var(--speed, 20s) linear infinite;
+}
+
+.circular-letter {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(var(--radius) * -1));
+  font-size: clamp(0.8rem, 3vw, 1.4rem);
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  line-height: 1;
+  /* ponytail: char-by-char positioning via inline style. Ceiling: no font-width
+     correction per char (assumes monospaced-width chars). Upgrade path: add font
+     measurement via canvas for proportional fonts. */
+}
+
+/* Hover variants */
+.circular-text.hover-speed-up:hover {
+  animation-duration: calc(var(--speed) * 0.3);
+}
+
+.circular-text.hover-slow-down:hover {
+  animation-duration: calc(var(--speed) * 3);
+}
+
+.circular-text.hover-pause:hover {
+  animation-play-state: paused;
+}
+
+/* ponytail: goBonkers = extremely fast spin on hover. Ceiling: no transition
+   on the speed change (instant). Upgrade: add transition on animation-duration. */
+.circular-text.hover-go-bonkers:hover {
+  animation-duration: 0.4s;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

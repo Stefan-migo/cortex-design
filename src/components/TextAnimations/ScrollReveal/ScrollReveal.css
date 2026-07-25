@@ -1,0 +1,15 @@
+.sr-container {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.15em;
+}
+
+.sr-item {
+  display: inline-block;
+  transition: opacity 0.15s ease, transform 0.15s ease, filter 0.15s ease;
+  font-size: clamp(2rem, 8vw, 6rem);
+  font-weight: 900;
+  white-space: pre;
+  color: #ffffff;
+}

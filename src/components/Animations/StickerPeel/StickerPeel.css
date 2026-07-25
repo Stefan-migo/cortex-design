@@ -1,0 +1,36 @@
+.sticker-peel {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.sticker-peel__content {
+  position: relative;
+  z-index: 1;
+}
+
+.sticker-peel__corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--peel-size, 30%);
+  height: var(--peel-size, 30%);
+  background: var(--peel-color, #f0f0f0);
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  z-index: 2;
+  transition: clip-path 0.4s ease-out, transform 0.4s ease-out;
+  transform-origin: top right;
+  pointer-events: none;
+}
+
+/* ── Hover mode: peel only on hover ── */
+.sticker-peel--hover:hover .sticker-peel__corner {
+  clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+  transform: rotate(-5deg) scale(1.05);
+}
+
+/* ── Always mode: peeled by default ── */
+.sticker-peel--always .sticker-peel__corner {
+  clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+  transform: rotate(-5deg) scale(1.05);
+}

@@ -1,0 +1,32 @@
+.gradient-text {
+  display: inline-block;
+  background: var(--gradient);
+  background-size: var(--size, 300% 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift var(--speed, 3s) var(--anim-dir, normal) linear infinite;
+}
+
+.gradient-text.pause-on-hover:hover {
+  animation-play-state: paused;
+}
+
+/* ponytail: outline to avoid layout shift vs border. Ceiling: outline doesn't
+   follow border-radius; upgrade to border + box-sizing if needed. */
+.gradient-text.with-border {
+  -webkit-text-fill-color: initial;
+  color: transparent;
+  border-radius: 4px;
+  padding: 0.2em 0.4em;
+  outline: 1px solid color-mix(in srgb, var(--gradient) 40%, transparent);
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}

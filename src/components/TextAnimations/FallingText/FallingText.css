@@ -1,0 +1,16 @@
+.falling-text {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.15em;
+  position: relative;
+}
+
+.ft-word {
+  display: inline-block;
+  font-size: clamp(2rem, 8vw, 6rem);
+  font-weight: 900;
+  white-space: pre;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+}

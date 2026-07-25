@@ -1,0 +1,25 @@
+.split-text {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+/* ponytail: push units apart when split by words.
+   Ceiling: gap applies to all children, including spaces.
+   Upgrade: use word-spacing instead. */
+.split-words {
+  gap: 0.15em;
+}
+
+.split-unit {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity var(--duration, 1.25s) ease-out,
+              transform var(--duration, 1.25s) ease-out;
+  transition-delay: calc(var(--i, 0) * var(--stagger, 50ms));
+}
+
+.split-visible .split-unit {
+  opacity: 1;
+  transform: translateY(0);
+}

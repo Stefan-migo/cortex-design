@@ -1,0 +1,28 @@
+.text-cursor {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.tc-point {
+  position: absolute;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: tc-fade var(--exit-duration, 0.5s) ease-out forwards;
+  white-space: nowrap;
+  user-select: none;
+  line-height: 1;
+}
+
+@keyframes tc-fade {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(0) translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateY(-24px) translateX(var(--float-x, 0px));
+  }
+}

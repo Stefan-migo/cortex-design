@@ -1,0 +1,27 @@
+.text-type {
+  display: inline-block;
+  font-size: clamp(2rem, 8vw, 6rem);
+  font-weight: 900;
+  color: #ffffff;
+  white-space: pre-wrap;
+}
+
+.tt-text {
+  display: inline;
+}
+
+/* ponytail: CSS-only blink — no JS cursor management.
+   Ceiling: blink rate is hardcoded (0.7s). No configurable blink speed.
+   Upgrade: expose cursorStyle prop for block/underscore/line; add blinkSpeed
+   prop for configurable blink rate. */
+.tt-cursor {
+  display: inline;
+  animation: tt-blink 0.7s steps(1) infinite;
+  margin-left: 2px;
+  font-weight: 100;
+  user-select: none;
+}
+
+@keyframes tt-blink {
+  50% { opacity: 0; }
+}

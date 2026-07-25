@@ -1,0 +1,33 @@
+.logo-loop {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.logo-loop__track {
+  display: inline-flex;
+  gap: 3rem;
+  animation: logo-loop-scroll linear infinite;
+}
+
+@keyframes logo-loop-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.logo-loop__item {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo-loop__img {
+  height: 2rem;
+  width: auto;
+}
+
+.logo-loop__text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  white-space: nowrap;
+}

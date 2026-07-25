@@ -1,0 +1,17 @@
+/* ponytail: white-space nowrap — text must fit on one line. Ceiling: no
+   responsive wrapping. Upgrade: set width to viewport multiple and duplicate
+   content for seamless infinite loop. */
+.scroll-velocity {
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: default;
+  user-select: none;
+}
+
+.sv-content {
+  display: inline-block;
+  will-change: transform;
+  font-size: clamp(2rem, 8vw, 6rem);
+  font-weight: 900;
+  color: #ffffff;
+}

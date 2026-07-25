@@ -1,0 +1,47 @@
+/* ponytail: absolute-positioned layers for enter/exit overlap.
+   Ceiling: container must have measured height — overflow hidden required.
+   Upgrade: use grid stacking for auto-height. */
+.rotating-text {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.rotating-layer {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.rotating-unit {
+  display: inline-block;
+}
+
+/* ponytail: exit animates out (translateY up + fade).
+   Ceiling: fixed 0.5s timing not tied to staggerMs.
+   Upgrade: compute exit duration from staggerMs * char count. */
+.rotating-exit .rotating-unit {
+  animation: rotating-exit 0.5s ease-in forwards;
+  animation-delay: calc(var(--i, 0) * var(--stagger, 30ms));
+}
+
+.rotating-enter .rotating-unit {
+  opacity: 0;
+  transform: translateY(100%);
+  animation: rotating-enter 0.5s ease-out forwards;
+  animation-delay: calc(var(--i, 0) * var(--stagger, 30ms));
+}
+
+@keyframes rotating-enter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotating-exit {
+  to {
+    opacity: 0;
+    transform: translateY(-120%);
+  }
+}
