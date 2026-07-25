@@ -1,0 +1,22 @@
+.staggered-menu { position: relative; width: 100%; z-index: 99; }
+.staggered-menu--fixed { position: fixed; top: 0; left: 0; right: 0; }
+.staggered-menu__layers { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.staggered-menu__layer { position: absolute; inset: 0; transform: translateX(-100%); transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); }
+.staggered-menu[data-open] .staggered-menu__layer:nth-child(1) { transform: translateX(0); transition-delay: 0s; }
+.staggered-menu[data-open] .staggered-menu__layer:nth-child(2) { transform: translateX(0); transition-delay: 0.1s; }
+.staggered-menu[data-open] .staggered-menu__layer:nth-child(3) { transform: translateX(0); transition-delay: 0.2s; }
+.staggered-menu__header { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+.staggered-menu__toggle { width: 48px; height: 48px; border-radius: 50%; border: none; background: transparent; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+.staggered-menu__toggle span { display: block; width: 20px; height: 2px; background: currentColor; border-radius: 1px; transition: transform 0.3s; }
+.staggered-menu__toggle--open span:first-child { transform: translateY(3px) rotate(45deg); }
+.staggered-menu__toggle--open span:last-child { transform: translateY(-3px) rotate(-45deg); }
+.staggered-menu__panel { position: fixed; inset: 0; z-index: 1; display: flex; align-items: center; justify-content: center; pointer-events: none; opacity: 0; transition: opacity 0.4s ease; }
+.staggered-menu__panel--open { opacity: 1; pointer-events: auto; }
+.staggered-menu__inner { text-align: center; }
+.staggered-menu__list { list-style: none; padding: 0; margin: 0 0 2rem; }
+.staggered-menu__item { margin: 0.5rem 0; opacity: 0; transform: translateY(20px); transition: opacity 0.4s ease, transform 0.4s ease; }
+.staggered-menu__panel--open .staggered-menu__item { opacity: 1; transform: translateY(0); }
+.staggered-menu__item a { color: #fff; font-size: 2rem; text-decoration: none; font-weight: 300; transition: color 0.2s; }
+.staggered-menu__socials h3 { color: rgba(255,255,255,0.5); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; }
+.staggered-menu__socials ul { list-style: none; padding: 0; display: flex; gap: 1rem; justify-content: center; }
+.staggered-menu__socials a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; }

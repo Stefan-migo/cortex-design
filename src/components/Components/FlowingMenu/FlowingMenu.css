@@ -1,0 +1,15 @@
+.flowing-menu { width: 100%; height: 100%; overflow: hidden; }
+.flowing-menu__nav { display: flex; flex-direction: column; height: 100%; margin: 0; padding: 0; }
+.flowing-menu__item { flex: 1; position: relative; overflow: hidden; text-align: center; border-top: 1px solid; }
+.flowing-menu__item:first-child { border-top: none; }
+.flowing-menu__link { display: flex; align-items: center; justify-content: center; height: 100%; position: relative; cursor: pointer; text-transform: uppercase; text-decoration: none; white-space: nowrap; font-weight: 600; font-size: 4vh; }
+.flowing-menu__link:hover { color: inherit; }
+.flowing-menu__marquee { position: absolute; top: 0; left: 0; overflow: hidden; width: 100%; height: 100%; pointer-events: none; transition: transform 0.6s cubic-bezier(0.83, 0, 0.17, 1); }
+.flowing-menu__marquee { transform: translate3d(0, 101%, 0); }
+.flowing-menu__marquee--visible { transform: translate3d(0, 0, 0); }
+.flowing-menu__marquee-inner-wrap { height: 100%; width: 100%; overflow: hidden; }
+.flowing-menu__marquee-inner { display: flex; align-items: center; position: relative; height: 100%; width: fit-content; animation: flowing-menu-scroll 15s linear infinite; }
+@keyframes flowing-menu-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.flowing-menu__marquee-part { display: flex; align-items: center; flex-shrink: 0; }
+.flowing-menu__marquee span { white-space: nowrap; text-transform: uppercase; font-weight: 400; font-size: 4vh; line-height: 1; padding: 0 1vw; }
+.flowing-menu__marquee-img { width: 200px; height: 7vh; margin: 2em 2vw; padding: 1em 0; border-radius: 50px; background-size: cover; background-position: 50% 50%; }

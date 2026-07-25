@@ -1,0 +1,128 @@
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #555;
+  border-radius: 24px;
+  padding: 16px;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.carousel--round {
+  border: 1px solid #555;
+}
+
+.carousel__track {
+  display: flex;
+  will-change: transform;
+}
+
+.carousel__item {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  border: 1px solid #555;
+  border-radius: calc(24px - 16px);
+  background-color: #0d0d0d;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.carousel__item:active {
+  cursor: grabbing;
+}
+
+.carousel__item--round {
+  background-color: #0d0d0d;
+  position: relative;
+  bottom: 0.1em;
+  border: 1px solid #555;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.carousel__item-header {
+  margin-bottom: 16px;
+  padding: 20px;
+}
+
+.carousel__item-header--round {
+  padding: 0;
+  margin: 0;
+}
+
+.carousel__icon-wrap {
+  display: flex;
+  height: 28px;
+  width: 28px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.carousel__icon {
+  height: 16px;
+  width: 16px;
+  color: #120F17;
+}
+
+.carousel__item-content {
+  padding: 20px;
+  padding-bottom: 20px;
+}
+
+.carousel__item-title {
+  margin-bottom: 4px;
+  font-weight: 900;
+  font-size: 18px;
+  color: #fff;
+}
+
+.carousel__item-desc {
+  font-size: 14px;
+  color: #fff;
+  margin: 0;
+}
+
+.carousel__indicators {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.carousel__indicators--round {
+  position: absolute;
+  z-index: 2;
+  bottom: 3em;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.carousel__dot {
+  height: 8px;
+  width: 8px;
+  border: none;
+  padding: 0;
+  margin: 0 4px;
+  appearance: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 150ms, transform 150ms;
+  background-color: rgba(85, 85, 85, 0.5);
+}
+
+.carousel__dot:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.carousel__dot--active {
+  background-color: #fff;
+  transform: scale(1.2);
+}

@@ -1,0 +1,2 @@
+.tilted-card { position: relative; perspective: 600px; }
+.tilted-card__inner { border-radius: 12px; overflow: hidden; transition: transform 0.5s ease; }

@@ -1,0 +1,50 @@
+.counter {
+  position: relative;
+  display: inline-block;
+}
+
+.counter__inner {
+  display: flex;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.counter__digit {
+  position: relative;
+  width: 1ch;
+  font-variant-numeric: tabular-nums;
+  overflow: hidden;
+}
+
+.counter__digit-inner {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.counter__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter__gradients {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.counter__gradient-top {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.counter__gradient-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
