@@ -1,0 +1,7 @@
+{
+  "name": "plain-js-port-target",
+  "version": "0.1.0",
+  "description": "CP-004 external plain-JS target — no framework, no bundler dependency. Records the post-port state the Cortex capsule must land.",
+  "main": "index.js",
+  "private": true
+}

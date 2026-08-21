@@ -57,7 +57,13 @@ async function main(argv) {
   for (const name of readdirSync(CONTRACTS_DIR)) {
     const p = join(CONTRACTS_DIR, name);
     if (!name.endsWith('.json')) continue;
-    const doc = JSON.parse(readFileSync(p, 'utf8'));
+    let doc;
+    try {
+      doc = JSON.parse(readFileSync(p, 'utf8'));
+    } catch (e) {
+      // CP-004: a malformed contract must fail with the contract NAMED.
+      throw namedError('ContractMalformed', name, `contract is not valid JSON: ${e.message}`);
+    }
     try {
       validate(doc);
     } catch (e) {

@@ -57,6 +57,6 @@ auto-chain: orchestrator slices on High; 5 phases are slice boundaries.
 
 ## Phase 5: E2E Port Proof + Rollback (CP-004)
 
-- [ ] 5.1 Create `tests/fixtures/plain-js-port/` (plain JS package.json) — 4 contracts + local `.storybook/` + DC-004 catalog (CP-004).
-- [ ] 5.2 Port acceptance: 3 evidences hold; malformed preservation-matrix → failed, contract named (CP-004).
-- [ ] 5.3 Rollback: `git revert` + `rm -rf .cortex` → `npm run build` clean.
+- [x] 5.1 Create `tests/fixtures/plain-js-port/` (plain JS package.json) — 4 contracts + local `.storybook/` + DC-004 catalog (CP-004).
+- [x] 5.2 Port acceptance: 3 evidences hold; malformed preservation-matrix → failed, contract named (CP-004).
+- [x] 5.3 Rollback: `git revert` + `rm -rf .cortex` → `npm run build` clean.

@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "components": [
+    {
+      "id": "cortex-design-profile",
+      "adaptationRules": { "variants": {}, "tokenSlots": [], "defaultProps": {}, "defaults": {} }
+    },
+    {
+      "id": "cortex-preservation-matrix",
+      "adaptationRules": { "variants": {}, "tokenSlots": [], "defaultProps": {}, "defaults": {} }
+    },
+    {
+      "id": "cortex-redesign-intent",
+      "adaptationRules": { "variants": {}, "tokenSlots": [], "defaultProps": {}, "defaults": {} }
+    },
+    {
+      "id": "cortex-visual-contract-v1",
+      "adaptationRules": { "variants": {}, "tokenSlots": [], "defaultProps": {}, "defaults": {} }
+    }
+  ]
+}
