@@ -50,22 +50,34 @@ exist to structure the output, not to implement a state machine.
 Trigger: Emit project design tokens as CSS custom properties. Runs after
 conversation finalizes, or can be invoked directly with an aesthetic brief.
 
-### Token Schema
+### Canonical Token Namespace
 
-Emit exactly these 11 `--od-*` CSS custom properties:
+Tokens live in exactly 5 domains (VA-001). The canonical namespace is
+`--{domain}-{property}`, bounded to 11 canonical properties, capped at 12.
 
-| Group | Tokens | Heuristic |
-|-------|--------|-----------|
-| Palette | `--od-color-primary`, `--od-color-secondary`, `--od-color-bg`, `--od-color-text` | Brief-derived hue → complementary/split-complementary for secondary; bg/text from luminance |
-| Typography | `--od-font-heading`, `--od-font-body`, `--od-font-mono` | Brief tone → serif/sans/mono stack |
-| Rhythm | `--od-spacing-unit` | Density brief → 4-12px (compact: 4px, comfortable: 8px, generous: 12px) |
-| Shape | `--od-radius-md` | Corner sharpness (sharp: 0px, moderate: 8px, round: 16px) |
-| Motion | `--od-animation-duration`, `--od-animation-easing` | Tone → fast (150ms) / medium (300ms) / slow (500ms); easing from brand feel |
+| Domain | Canonical tokens | Count |
+|--------|------------------|-------|
+| Palette | `--palette-primary`, `--palette-secondary`, `--palette-background`, `--palette-text` | 4 |
+| Typography | `--typography-heading`, `--typography-body`, `--typography-mono` | 3 |
+| Rhythm | `--rhythm-base`, `--rhythm-radius` | 2 |
+| Animation-tone | `--animation-duration`, `--animation-easing` | 2 |
+| Scroll-narrative | reserved (DRL narrative concept, VA-005) | 0 |
 
-ponytail: 11-token cap prevents explosion. Scroll behavior (`--od-scroll-behavior`)
-is deliberately excluded — it is a DRL narrative concept stored in `refs/design/`,
-not a per-project token. If scroll-driven animation tokens are needed, add
-them as a separate domain with `ponytail:` ceiling notes.
+The legacy `--od-*` namespace is NON-canonical and frozen as aliases: every
+`--od-{group}-{name}` SHALL be aliased to its canonical
+`--{domain}-{property}` equivalent and SHALL NEVER be deleted (VA-001/CP-005).
+
+### Live Emitter
+
+Token emission is NOT authored inline here. Use the `.cortex` capsule emitter
+(AD-5): `.cortex/adapters/plain-js.js` owns the concrete 11-token set and the
+`--od-*` alias mapping. This skill only produces the aesthetic brief and the
+canonical namespace contract; the emitter turns the brief into the `:root { }`
+block via `.cortex/bootstrap.js`. Do NOT duplicate the token logic here.
+
+ponytail: 12-token cap prevents explosion (VA-004); palette 4 is mandatory and
+never dropped (VA-006). Scroll behavior is a DRL narrative concept stored in
+`redesign-intent.json`, not a per-project token (VA-005).
 
 ### Deterministic Heuristics
 
@@ -82,21 +94,37 @@ unwieldy. Upgrade: `refs/design/heuristics.yaml` with weighted matching.
 
 ### Output Format
 
+The emitter writes the canonical `:root { }` block (see Live Emitter). It
+declares the 11 canonical `--{domain}-{property}` tokens plus the frozen
+`--od-*` alias declarations pointing at their canonical equivalents
+(VA-001/CP-005), for example:
+
 ```css
 :root {
-  --od-color-primary: #6366f1;
-  --od-color-secondary: #a855f7;
-  --od-color-bg: #0a0a0f;
-  --od-color-text: #f8fafc;
-  --od-font-heading: 'Inter', sans-serif;
-  --od-font-body: 'Inter', sans-serif;
-  --od-font-mono: 'JetBrains Mono', monospace;
-  --od-spacing-unit: 8px;
-  --od-radius-md: 8px;
-  --od-animation-duration: 300ms;
-  --od-animation-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  --palette-primary: #6b56f0;
+  --palette-secondary: #0f0f23;
+  --palette-background: #0b0b16;
+  --palette-text: #f5f0ff;
+  --typography-heading: 'Space Grotesk';
+  --typography-body: 'Inter';
+  --typography-mono: 'monospace';
+  --rhythm-base: 0.5rem;
+  --rhythm-radius: 1rem;
+  --animation-duration: 0.3s;
+  --animation-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  --od-color-primary: var(--palette-primary); /* alias, never deleted */
 }
 ```
+
+### Catalog Contract
+
+Component selection returns DC-004 object-form entries from the canonical
+catalog `.storybook/component-catalog.json`. Each component carries `id`,
+`storyFile|null`, `visualContext[]`, `moodTags[]`, and
+`adaptationRules` with object-form `variants` (map of variant name to prop
+override), plus `tokenSlots[]`/`defaultProps`/`defaults`. Query by
+`visualContext` + OR-`moodTags` via the CA-001 helper (see `component-adapter`);
+an unmatched query returns an empty array, never an error.
 
 ### Final Output Contract
 

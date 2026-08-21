@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { spawnSync } from 'node:child_process';
 import {
   mkdtempSync, mkdirSync, writeFileSync, readFileSync,
-  existsSync, cpSync, rmSync,
+  existsSync, cpSync, rmSync, readdirSync,
 } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
@@ -22,6 +22,16 @@ function writePkg(dir, overrides = {}) {
 }
 function run(target) {
   return spawnSync(process.execPath, [BOOTSTRAP, '--target', target], { encoding: 'utf8' });
+}
+// Recursive file listing of a directory tree (utf8 text files).
+function readFileList(dir) {
+  const out = [];
+  for (const name of readdirSync(dir, { withFileTypes: true })) {
+    const p = join(dir, name.name);
+    if (name.isDirectory()) out.push(...readFileList(p));
+    else if (/\.(json|js|css|mjs|cjs)$/.test(name.name)) out.push(p);
+  }
+  return out;
 }
 
 describe('CP-001 bootstrap installs in a plain JS project', () => {
@@ -94,7 +104,45 @@ describe('SB-GLOBAL-000: dual bind ports, no host collision', () => {
     const main = readFileSync(join(t, '.storybook', 'main.js'), 'utf8');
     expect(main).toMatch(/html/);
     expect(main).not.toMatch(/react|@storybook\/react/);
-    expect(existsSync(join(HOST, '.storybook'))).toBe(false);
+    const preview = readFileSync(join(t, '.storybook', 'preview.js'), 'utf8');
+    expect(preview).not.toMatch(/react|@storybook\/react/);
+    rmSync(t, { recursive: true, force: true });
+  });
+});
+
+describe('SB-GLOBAL-003: local scaffold is independent of the global repo', () => {
+  it('scaffolded files reference ZERO host-repo paths (local-only render)', () => {
+    const t = tempDir('nohost');
+    writePkg(t);
+    const r = run(t);
+    expect(r.status).toBe(0);
+    // SB-GLOBAL-003: search the target's .storybook/, .cortex/, and package.json
+    // for any host-repo path; none may appear.
+    const hostPath = HOST;
+    const targets = ['.storybook/main.js', '.storybook/preview.js', '.storybook/component-catalog.json'];
+    const cortex = join(t, '.cortex', 'contracts');
+    for (const f of readFileList(join(t, '.storybook'))) {
+      expect(readFileSync(f, 'utf8')).not.toContain(hostPath);
+    }
+    // Contracts/adapter copied into target are static — no host root anywhere.
+    for (const f of readFileList(cortex)) {
+      expect(readFileSync(f, 'utf8')).not.toContain(hostPath);
+    }
+    const adapter = readFileSync(join(t, '.cortex', 'adapters', 'plain-js.js'), 'utf8');
+    expect(adapter).not.toContain(hostPath);
+    expect(readFileSync(join(t, 'package.json'), 'utf8')).not.toContain(hostPath);
+    rmSync(t, { recursive: true, force: true });
+  });
+
+  it('SB-GLOBAL-002: zero diff on host component files and global .storybook', () => {
+    const t = tempDir('zeroDiff');
+    writePkg(t);
+    const r = run(t);
+    expect(r.status).toBe(0);
+    const g = spawnSync('git', ['diff', '--name-only', '--', 'src/', '.storybook/'], {
+      cwd: HOST, encoding: 'utf8',
+    });
+    expect(g.stdout.trim()).toBe('');
     rmSync(t, { recursive: true, force: true });
   });
 });
