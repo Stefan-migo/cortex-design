@@ -184,17 +184,42 @@ SHALL set `tags: ['autodocs']`.
 ---
 
 ## Global Requirements
+### Requirement SB-GLOBAL-000: Dual global vs local Storybook role
+
+Storybook SHALL serve two distinct roles. The GLOBAL Storybook (this repo's `.storybook/`) is the agent resource and communication surface: it documents the full component library and is the canonical source for the catalog consumed by agents. The LOCAL Storybook is the per-project source of truth scaffolded by the `.cortex/` capsule into each target: it holds that project's own stories, tokens, and catalog and MUST be independent of the global instance — changes in one SHALL NOT affect the other. The global catalog (`.storybook/component-catalog.json`) SHALL conform to the canonical `domain-contracts` DC-004 schema.
+
+#### Scenario: Global and local instances coexist
+
+GIVEN a target project where the capsule scaffolded a local Storybook WHEN both the global and the local Storybook run THEN each binds to its own port AND each serves its own `.storybook/` configuration AND neither reads the other's config.
+
+#### Scenario: Global catalog is canonical
+
+GIVEN the global Storybook builds successfully WHEN inspecting `.storybook/component-catalog.json` THEN every entry validates against DC-004 (object-form `variants`, present `tokenSlots`/`defaultProps`/`defaults`).
 
 ### Requirement SB-GLOBAL-001: A11y testing
 
 Every story MUST be checked by `@storybook/addon-a11y`. The a11y panel SHALL show results per story with no critical violations.
 
 #### Scenario: A11y panel active
+
 GIVEN any story renders WHEN opening the A11y panel THEN violations, passes, and incomplete checks are displayed AND no violations of severity "critical" exist.
 
 ### Requirement SB-GLOBAL-002: No component code changes
 
-Component implementation files (`GlitchText.jsx`, `CurvedLoop.jsx`, `TextPressure.jsx`, `FuzzyText.jsx`) MUST NOT be modified. All Storybook concerns live in `.storybook/` and `*.stories.jsx` files only.
+Component implementation files MUST NOT be modified by either the global or local Storybook. Global Storybook concerns live in `.storybook/` and `*.stories.jsx`; local scaffold concerns live in the target's `.cortex/` and local `.storybook/` only.
 
-#### Scenario: Zero diff on components
-GIVEN all stories and config created WHEN `git diff -- src/components/TextAnimations/GlitchText.jsx src/components/TextAnimations/CurvedLoop.jsx src/components/TextAnimations/TextPressure.jsx src/components/TextAnimations/FuzzyText.jsx` runs THEN output is empty.
+#### Scenario: Zero diff on components in both roles
+
+GIVEN global stories and the local scaffold created WHEN `git diff -- <component implementation files>` runs AND the target's local `git diff` runs THEN both diffs are empty.
+
+### Requirement SB-GLOBAL-003: Local scaffold is independent of global
+
+The local Storybook scaffold created by the capsule (`.cortex/`) MUST function with zero knowledge of the global repo. It SHALL reference only files copied into the target and SHALL NOT import or resolve any path that lives in the global repository.
+
+#### Scenario: Local scaffold has no host paths
+
+GIVEN a completed port into an external plain JS project WHEN searching the local `.storybook/` and `.cortex/` and local `package.json` for host-repo paths THEN no host-repo path is found.
+
+#### Scenario: Local Storybook renders local catalog
+
+GIVEN the external project's local Storybook running WHEN opening the local instance THEN it renders stories defined only in the target AND it reads the target's local `.cortex/contracts/` and local `component-catalog.json`.
