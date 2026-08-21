@@ -8,7 +8,7 @@
         "graphify",
         "mcp",
         "--project-dir",
-        "/run/media/stefan/Nuevo vol/Proyectos/OpenDesign"
+        "/run/media/stefan/Nuevo vol/Proyectos/CortexDesign"
       ],
       "_description": "Graphify \u2014 knowledge graph queries via MCP"
     },
