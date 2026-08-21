@@ -6,6 +6,9 @@
 node_modules/
 dist/
 
+# Storybook build output (generated; untracked since f51c2df)
+storybook-static/
+
 # Env
 .env
 .env.local

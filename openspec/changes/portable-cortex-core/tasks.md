@@ -35,10 +35,10 @@ auto-chain: orchestrator slices on High; 5 phases are slice boundaries.
 
 ## Phase 2: Schema + Contracts (DC-004, DC-001..003)
 
-- [ ] 2.1 RED: validator tests — array-`variants` rejected (DC-004/DC-005); DC-001 no-file+named field; DC-002 greenfield note; DC-003 empty `derivedTokens`.
-- [ ] 2.2 Create `.cortex/schema.json` (DC-004: `{version, components[]}`, object `variants`, `tokenSlots`/`defaultProps`/`defaults`).
-- [ ] 2.3 Create `.cortex/contracts/{existing-design-profile,redesign-intent,preservation-matrix,visual-contract-v1}.json` (DC-002 full/greenfield; CP-005 preserved/dropped).
-- [ ] 2.4 Write-time validator: invalid not written (DC-001); scroll intent → notes (VA-005).
+- [x] 2.1 RED: validator tests — array-`variants` rejected (DC-004/DC-005); DC-001 no-file+named field; DC-002 greenfield note; DC-003 empty `derivedTokens`.
+- [x] 2.2 Create `.cortex/schema.json` (DC-004: `{version, components[]}`, object `variants`, `tokenSlots`/`defaultProps`/`defaults`).
+- [x] 2.3 Create `.cortex/contracts/{existing-design-profile,redesign-intent,preservation-matrix,visual-contract-v1}.json` (DC-002 full/greenfield; CP-005 preserved/dropped).
+- [x] 2.4 Write-time validator: invalid not written (DC-001); scroll intent → notes (VA-005).
 
 ## Phase 3: Bootstrap + Adapter (CP-001..003, ITG-001..002)
 

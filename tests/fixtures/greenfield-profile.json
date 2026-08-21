@@ -1,0 +1,8 @@
+{
+  "id": "greenfield-profile",
+  "stack": "plain-js",
+  "presentColors": {},
+  "presentTypography": ["system-ui"],
+  "existingTokens": {},
+  "notes": ["greenfield: no pre-existing tokens"]
+}
