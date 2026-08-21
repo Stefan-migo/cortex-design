@@ -2,7 +2,7 @@
 schema: spec-driven
 
 context: |
-  Project: OpenDesign — Agent-native design system workspace.
+  Project: CortexDesign — Agent-native design system workspace.
   Stack: Vite 5 + React 19 + OGL (SoftAurora WebGL background)
   Architecture: SPA landing page (vanilla JS entry, React for components)
   Testing: No test runner configured
