@@ -42,11 +42,11 @@ auto-chain: orchestrator slices on High; 5 phases are slice boundaries.
 
 ## Phase 3: Bootstrap + Adapter (CP-001..003, ITG-001..002)
 
-- [ ] 3.1 RED: bootstrap tests — missing/malformed package.json exit≠0+named error (CP-001); DC-005 drift non-zero; SB dual ports (SB-GLOBAL-000); empty SOURCES diff (CP-002).
-- [ ] 3.2 Create `.cortex/bootstrap.js` (node stdlib, zero deps) — detect→resolve→emit, exit 1+named error, plain-js fallback+report (CP-001, ITG-001).
-- [ ] 3.3 Create `.cortex/adapters/plain-js.js` — `{detect,resolve,emit}` only (ITG-001); false-detect stub warns, never blocks (ITG-002).
-- [ ] 3.4 Scaffold local SB: `.storybook/{main.js,preview.js}` (HTML builder) + `component-catalog.json` (CP-002); one canonical source (CP-003); alias `--od-*`, never delete (CP-005, VA-001).
-- [ ] 3.5 Emitter: 11 canonical tokens (palette 4 VA-006, others ≤3, scroll reserved VA-005); 12-cap drops lowest+reason (VA-004).
+- [x] 3.1 RED: bootstrap tests — missing/malformed package.json exit≠0+named error (CP-001); DC-005 drift non-zero; SB dual ports (SB-GLOBAL-000); empty SOURCES diff (CP-002).
+- [x] 3.2 Create `.cortex/bootstrap.js` (node stdlib, zero deps) — detect→resolve→emit, exit 1+named error, plain-js fallback+report (CP-001, ITG-001).
+- [x] 3.3 Create `.cortex/adapters/plain-js.js` — `{detect,resolve,emit}` only (ITG-001); false-detect stub warns, never blocks (ITG-002).
+- [x] 3.4 Scaffold local SB: `.storybook/{main.js,preview.js}` (HTML builder) + `component-catalog.json` (CP-002); one canonical source (CP-003); alias `--od-*`, never delete (CP-005, VA-001).
+- [x] 3.5 Emitter: 11 canonical tokens (palette 4 VA-006, others ≤3, scroll reserved VA-005); 12-cap drops lowest+reason (VA-004).
 
 ## Phase 4: Global Catalog + Skills (SB-GLOBAL-*, CA-001)
 
