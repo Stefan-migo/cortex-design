@@ -50,10 +50,10 @@ auto-chain: orchestrator slices on High; 5 phases are slice boundaries.
 
 ## Phase 4: Global Catalog + Skills (SB-GLOBAL-*, CA-001)
 
-- [ ] 4.1 Regenerate `.storybook/component-catalog.json` to DC-004 object-form; validate (SB-GLOBAL-000).
-- [ ] 4.2 Bake DC-004 + canonical namespace into `.opencode/skills/{design-agent-lead,component-adapter}/SKILL.md`; live emitter (AD-5).
-- [ ] 4.3 Wire CA-001 query (visualContext + OR moodTags → empty, no throw).
-- [ ] 4.4 E2E: local scaffold zero host paths, renders only target catalog (SB-GLOBAL-003/002).
+- [x] 4.1 Regenerate `.storybook/component-catalog.json` to DC-004 object-form; validate (SB-GLOBAL-000).
+- [x] 4.2 Bake DC-004 + canonical namespace into `.opencode/skills/{design-agent-lead,component-adapter}/SKILL.md`; live emitter (AD-5).
+- [x] 4.3 Wire CA-001 query (visualContext + OR moodTags → empty, no throw).
+- [x] 4.4 E2E: local scaffold zero host paths, renders only target catalog (SB-GLOBAL-003/002).
 
 ## Phase 5: E2E Port Proof + Rollback (CP-004)
 
