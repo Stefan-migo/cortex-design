@@ -1,6 +1,10 @@
 import { useRef, useEffect, useCallback, useMemo } from 'react';
 import './DotGrid.css';
 
+/* ponytail: kept LOCAL copy instead of src/lib/color-utils.js (HLP-002) because this
+   hexToRgb returns an OBJECT {r,g,b} 0-255 with a {0,0,0} fallback — the shared
+   helper returns a normalized [r,g,b] array with no fallback. Consolidating would
+   change the baseRgb/activeRgb consumer shape. */
 function hexToRgb(hex) {
   const m = hex.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
   if (!m) return { r: 0, g: 0, b: 0 };
