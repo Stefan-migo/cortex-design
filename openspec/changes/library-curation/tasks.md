@@ -33,11 +33,11 @@ Estimated changed lines: ~2100 authored add+del (deletion-heavy). Suggested spli
 
 ## Phase 2: Retire Showcase (PR2)
 
-- [ ] 2.1 Delete `src/data/registry.js`, `src/data/sources.js` (CAT-001).
-- [ ] 2.2 Delete `src/pages/{Library,ComponentDetail}.{jsx,css}`, `src/components/ControlsPanel.{jsx,css}`; keep `useHashRoute.js`.
-- [ ] 2.3 Rewrite tests: `App`,`Library`,`ComponentDetail`,`Layout`.test.jsx + `hooks/useHashRoute.test.js` (CAT-001/002/003).
-- [ ] 2.4 Build + tests green, no dangling imports (CAT-004, DEP-002).
-- [ ] 2.5 Rollback: `git revert` PR2.
+- [x] 2.1 Delete `src/data/registry.js`, `src/data/sources.js` (CAT-001).
+- [x] 2.2 Delete `src/components/ControlsPanel.{jsx,css}`; keep `useHashRoute.js`. (Design resolved: `pages/{Library,ComponentDetail}.{jsx,css}` were REWRITTEN in PR1 and remain catalog-backed — they are the live surface, not deleted.)
+- [x] 2.3 Tests rewritten to catalog surface in PR1 (`App`,`Library`,`ComponentDetail`,`Layout`.test.jsx + `hooks/useHashRoute.test.js`); no registry-asserting tests to drop (CAT-001/002/003).
+- [x] 2.4 Build + tests green, no dangling imports (CAT-004, DEP-002).
+- [x] 2.5 Rollback: `git revert` PR2.
 
 ## Phase 3: Curtains Cut (PR3)
 
