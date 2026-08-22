@@ -61,9 +61,9 @@ Estimated changed lines: ~2100 authored add+del (deletion-heavy). Suggested spli
 
 ## Phase 6: withFont Inline (PR6)
 
-- [ ] 6.1 Move `withFont` into `TextPressure.stories.jsx`; drop from `.storybook/preview.jsx` (SB-CAT-003).
-- [ ] 6.2 Build green; story injects Roboto Flex (SB-CAT-003).
-- [ ] 6.3 Rollback: `git revert` PR6.
+- [x] 6.1 Move `withFont` into `TextPressure.stories.jsx`; drop from `.storybook/preview.jsx` (SB-CAT-003).
+- [x] 6.2 Build green; story injects Roboto Flex (SB-CAT-003).
+- [x] 6.3 Rollback: `git revert` PR6.
 
 ## Phase 7: Catalog Keepers + Phantoms (PR7)
 
