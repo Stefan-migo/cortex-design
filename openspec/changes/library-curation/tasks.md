@@ -54,10 +54,10 @@ Estimated changed lines: ~2100 authored add+del (deletion-heavy). Suggested spli
 
 ## Phase 5: Deps Removal (PR5)
 
-- [ ] 5.1 Drop `gl-matrix`,`maath`,`meshline`,`@react-three/rapier` from package.json+lockfile (DEP-001).
-- [ ] 5.2 Grep `src/` for the 4 names; remove residual imports (DEP-001).
-- [ ] 5.3 Build + tests green; `npm ci` then dev loads (DEP-002).
-- [ ] 5.4 Rollback: `git revert`; `npm i` reinstates.
+- [x] 5.1 Drop `gl-matrix`,`maath`,`meshline`,`@react-three/rapier` from package.json+lockfile (DEP-001).
+- [x] 5.2 Grep `src/` for the 4 names; remove residual imports (DEP-001).
+- [x] 5.3 Build + tests green; `npm ci` then dev loads (DEP-002).
+- [x] 5.4 Rollback: `git revert`; `npm i` reinstates.
 
 ## Phase 6: withFont Inline (PR6)
 
