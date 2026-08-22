@@ -1,0 +1,52 @@
+.corp-table__wrapper {
+  --corp-border: var(--border);
+  --corp-text: var(--text);
+  --corp-bg: var(--surface);
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.corp-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--corp-text);
+  font: inherit;
+  caption-side: bottom;
+}
+
+.corp-table__caption {
+  padding: 0.75rem 0;
+  font-size: 0.875rem;
+  color: color-mix(in srgb, var(--corp-text) 60%, transparent);
+  text-align: center;
+}
+
+.corp-table__header tr,
+.corp-table__footer tr {
+  border-bottom: 1px solid var(--corp-border);
+}
+
+.corp-table__head,
+.corp-table__cell {
+  padding: 0.75rem 1rem;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.corp-table__head {
+  font-weight: 600;
+}
+
+.corp-table__row {
+  border-bottom: 1px solid var(--corp-border);
+  transition: background-color 0.15s ease;
+}
+
+.corp-table__row:hover {
+  background: color-mix(in srgb, var(--corp-bg) 80%, var(--accent) 8%);
+}
+
+.corp-table__body:last-child tr {
+  border-bottom: none;
+}
