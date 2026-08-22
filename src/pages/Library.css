@@ -40,12 +40,6 @@
   background: rgba(255, 255, 255, 0.015);
   overflow: hidden;
   position: relative;
-  pointer-events: none;
-}
-
-/* override components that demand full viewport inside tiny card */
-.library__card-preview .curved-loop-jacket {
-  min-height: 140px !important;
 }
 
 .library__card-placeholder {
@@ -65,8 +59,12 @@
   margin-bottom: 0.2rem;
 }
 
-.library__card-desc {
+.library__card-link {
   font-size: 0.75rem;
-  color: var(--text-muted);
-  line-height: 1.4;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.library__card-link:hover {
+  text-decoration: underline;
 }
