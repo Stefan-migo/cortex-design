@@ -102,50 +102,6 @@
       }
     },
     {
-      "id": "layout",
-      "storyFile": null,
-      "visualContext": [
-        "layout",
-        "navigation",
-        "shell"
-      ],
-      "moodTags": [
-        "clean",
-        "structured",
-        "minimal"
-      ],
-      "adaptationRules": {
-        "variants": {
-          "Default": {}
-        },
-        "tokenSlots": [],
-        "defaultProps": {},
-        "defaults": {}
-      }
-    },
-    {
-      "id": "controls-panel",
-      "storyFile": null,
-      "visualContext": [
-        "playground",
-        "customization",
-        "controls"
-      ],
-      "moodTags": [
-        "functional",
-        "minimal",
-        "clean"
-      ],
-      "adaptationRules": {
-        "variants": {
-          "Default": {}
-        },
-        "tokenSlots": [],
-        "defaultProps": {},
-        "defaults": {}
-      }
-    },
-    {
       "id": "shiny-text",
       "storyFile": "../src/components/TextAnimations/ShinyText/ShinyText.stories.jsx",
       "visualContext": [
