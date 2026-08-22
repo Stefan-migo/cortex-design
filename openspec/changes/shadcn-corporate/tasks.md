@@ -62,12 +62,12 @@ Threat matrix: N/A (design: CSS-only components + JSON entries, no routing/shell
 
 ## Phase 4 — Navigation / Interactive (PR 4, ~1200 lines)
 
-- [ ] 4.1 Create Breadcrumb triad (`navigation`/nav wrapper) (CF-001/004).
-- [ ] 4.2 Create Tabs triad — Tier B: `role=tablist/tab/tabpanel`, roving tabindex, Arrow/Home/End + `aria-selected`; `ponytail:` roving-tab-manager ceiling (CF-005).
-- [ ] 4.3 Create Tooltip triad — Tier B: show on focus/pointerenter, hide blur/Escape, `role=tooltip`+`aria-describedby`; `ponytail:` no-outside-click ceiling (CF-005).
-- [ ] 4.4 Create Progress triad — Tier B: `role=progressbar`, `aria-valuenow/min/max` via `--corp-value`; `ponytail:` no-indeterminate ceiling (CF-005).
-- [ ] 4.5 Create 4 tests `Corporate.{Breadcrumb,Tabs,Tooltip,Progress}.test.jsx` — Tier B ARIA + keyboard scenarios from CF-005; Breadcrumb Tier A nav role.
-- [ ] 4.6 Commit 4 triads + tests; run PR4 focused test (Tabs) + build.
+- [x] 4.1 Create Breadcrumb triad (`navigation`/nav wrapper) (CF-001/004).
+- [x] 4.2 Create Tabs triad — Tier B: `role=tablist/tab/tabpanel`, roving tabindex, Arrow/Home/End + `aria-selected`; `ponytail:` roving-tab-manager ceiling (CF-005).
+- [x] 4.3 Create Tooltip triad — Tier B: show on focus/pointerenter, hide blur/Escape, `role=tooltip`+`aria-describedby`; `ponytail:` no-outside-click ceiling (CF-005).
+- [x] 4.4 Create Progress triad — Tier B: `role=progressbar`, `aria-valuenow/min/max` via `--corp-value`; `ponytail:` no-indeterminate ceiling (CF-005).
+- [x] 4.5 Create 4 tests `Corporate.{Breadcrumb,Tabs,Tooltip,Progress}.test.jsx` — Tier B ARIA + keyboard scenarios from CF-005; Breadcrumb Tier A nav role.
+- [x] 4.6 Commit 4 triads + tests; run PR4 focused test (Tabs) + build.
 
 ## Phase 5 — Catalog Bump (PR 5, ~250 lines) — stacks AFTER P2–P4 merges
 

@@ -1,0 +1,17 @@
+.corp-progress {
+  --corp-bg: color-mix(in srgb, var(--surface) 70%, var(--border) 30%);
+  --corp-accent: var(--accent);
+  position: relative;
+  overflow: hidden;
+  height: 0.625rem;
+  background: var(--corp-bg);
+  border-radius: 9999px;
+}
+
+.corp-progress__indicator {
+  width: var(--corp-value, 0%);
+  height: 100%;
+  background: var(--corp-accent);
+  border-radius: inherit;
+  transition: width 0.3s ease;
+}
