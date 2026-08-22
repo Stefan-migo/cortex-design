@@ -1,0 +1,10 @@
+.corp-label {
+  --corp-text: var(--text);
+  display: inline-block;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--corp-text);
+  cursor: default;
+}
