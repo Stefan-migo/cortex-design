@@ -67,11 +67,11 @@ Estimated changed lines: ~2100 authored add+del (deletion-heavy). Suggested spli
 
 ## Phase 7: Catalog Keepers + Phantoms (PR7)
 
-- [ ] 7.1 Drop `layout`,`controls-panel` from catalog (DC-006).
-- [ ] 7.2 Add 7 keepers with storyFiles: `aurora`,`dot-grid`,`venetian-blinds`,`light-rays`,`strands`,`ballpit`,`prism` (fade-content already present) (DC-007).
-- [ ] 7.3 Validate DC-004 schema (`variants`,`tokenSlots`/`defaultProps`/`defaults`); 51 entries; storyFiles resolve (SB-GLOBAL-000, SB-CAT-001).
-- [ ] 7.4 Uncatalogued non-keeper code on disk allowed, no validation error (DC-008).
-- [ ] 7.5 Rollback: `git revert` catalog hygiene commit.
+- [x] 7.1 Drop `layout`,`controls-panel` from catalog (DC-006). — `9514c54`.
+- [x] 7.2 Add 7 keepers with storyFiles: `aurora`,`dot-grid`,`venetian-blinds`,`light-rays`,`strands`,`ballpit`,`prism` (fade-content already present) (DC-007). — `5481f20`.
+- [x] 7.3 Validate DC-004 schema (`variants`,`tokenSlots`/`defaultProps`/`defaults`); **52 entries** (plan noted 51; actual is 52: 47 − 2 phantoms + 7 keepers); every non-null storyFile resolves (SB-GLOBAL-000, SB-CAT-001).
+- [x] 7.4 Uncatalogued non-keeper code on disk allowed, no validation error (DC-008). — `cursor-grid`, `SoftAurora`, `Orb`, `Plasma` etc remain on disk; catalog unchanged for non-keepers; validator green.
+- [x] 7.5 Rollback: `git revert` catalog hygiene commit (`9514c54..5481f20`).
 
 ## Phase 8: Helpers Consolidation (PR8)
 

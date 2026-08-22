@@ -102,50 +102,6 @@
       }
     },
     {
-      "id": "layout",
-      "storyFile": null,
-      "visualContext": [
-        "layout",
-        "navigation",
-        "shell"
-      ],
-      "moodTags": [
-        "clean",
-        "structured",
-        "minimal"
-      ],
-      "adaptationRules": {
-        "variants": {
-          "Default": {}
-        },
-        "tokenSlots": [],
-        "defaultProps": {},
-        "defaults": {}
-      }
-    },
-    {
-      "id": "controls-panel",
-      "storyFile": null,
-      "visualContext": [
-        "playground",
-        "customization",
-        "controls"
-      ],
-      "moodTags": [
-        "functional",
-        "minimal",
-        "clean"
-      ],
-      "adaptationRules": {
-        "variants": {
-          "Default": {}
-        },
-        "tokenSlots": [],
-        "defaultProps": {},
-        "defaults": {}
-      }
-    },
-    {
       "id": "shiny-text",
       "storyFile": "../src/components/TextAnimations/ShinyText/ShinyText.stories.jsx",
       "visualContext": [
@@ -1170,6 +1126,167 @@
           "Large": {},
           "NoClickEffect": {},
           "Red": {}
+        },
+        "tokenSlots": [],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "aurora",
+      "storyFile": "../src/components/Backgrounds/Aurora/Aurora.stories.jsx",
+      "visualContext": [
+        "hero",
+        "background",
+        "fullscreen"
+      ],
+      "moodTags": [
+        "gradient",
+        "dynamic",
+        "ethereal"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {},
+          "GreenAurora": {},
+          "WarmAurora": {}
+        },
+        "tokenSlots": [],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "dot-grid",
+      "storyFile": "../src/components/Backgrounds/DotGrid/DotGrid.stories.jsx",
+      "visualContext": [
+        "background",
+        "overlay",
+        "fullscreen"
+      ],
+      "moodTags": [
+        "minimal",
+        "tech",
+        "clean"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {}
+        },
+        "tokenSlots": [],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "venetian-blinds",
+      "storyFile": "../src/components/Transitions/VenetianBlinds.stories.jsx",
+      "visualContext": [
+        "transition",
+        "scroll-reveal",
+        "section"
+      ],
+      "moodTags": [
+        "smooth",
+        "structured",
+        "modern"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {}
+        },
+        "tokenSlots": [],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "light-rays",
+      "storyFile": "../src/components/Backgrounds/LightRays/LightRays.stories.jsx",
+      "visualContext": [
+        "background",
+        "overlay",
+        "fullscreen"
+      ],
+      "moodTags": [
+        "dynamic",
+        "ethereal",
+        "modern"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {}
+        },
+        "tokenSlots": [],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "strands",
+      "storyFile": "../src/components/Animations/Strands/Strands.stories.jsx",
+      "visualContext": [
+        "background",
+        "cursor",
+        "fullscreen"
+      ],
+      "moodTags": [
+        "dynamic",
+        "interactive",
+        "smooth"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {},
+          "ManyStrands": {},
+          "Short": {},
+          "NoMouse": {}
+        },
+        "tokenSlots": [],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "ballpit",
+      "storyFile": "../src/components/Backgrounds/Ballpit/Ballpit.stories.jsx",
+      "visualContext": [
+        "background",
+        "playground",
+        "fullscreen"
+      ],
+      "moodTags": [
+        "playful",
+        "colorful",
+        "dynamic"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {},
+          "FewBalls": {},
+          "NoFollow": {}
+        },
+        "tokenSlots": [],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "prism",
+      "storyFile": "../src/components/Backgrounds/Prism/Prism.stories.jsx",
+      "visualContext": [
+        "background",
+        "hero",
+        "fullscreen"
+      ],
+      "moodTags": [
+        "colorful",
+        "dynamic",
+        "modern"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {}
         },
         "tokenSlots": [],
         "defaultProps": {},
