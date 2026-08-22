@@ -1,0 +1,56 @@
+.corp-tabs {
+  --corp-border: var(--border);
+  --corp-text: var(--text);
+  --corp-muted: color-mix(in srgb, var(--text) 55%, transparent);
+  --corp-accent: var(--accent);
+  --corp-surface: color-mix(in srgb, var(--surface) 96%, var(--accent) 6%);
+}
+
+.corp-tabs__list {
+  display: flex;
+  gap: 0.25rem;
+  border-bottom: 1px solid var(--corp-border);
+  font: inherit;
+}
+
+.corp-tabs__trigger {
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0.625rem 1rem;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--corp-muted);
+  cursor: pointer;
+  border-radius: 6px 6px 0 0;
+  transition:
+    color 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.corp-tabs__trigger:hover {
+  color: var(--corp-text);
+  background: color-mix(in srgb, var(--corp-surface) 60%, transparent);
+}
+
+.corp-tabs__trigger:focus-visible {
+  outline: 2px solid var(--corp-accent);
+  outline-offset: -2px;
+}
+
+.corp-tabs__trigger--active {
+  color: var(--corp-text);
+  box-shadow: inset 0 -2px 0 0 var(--corp-accent);
+}
+
+.corp-tabs__trigger--hover {
+  color: var(--corp-text);
+}
+
+.corp-tabs__panel {
+  padding: 1rem 0.25rem;
+  color: var(--corp-text);
+  font-size: 0.9rem;
+}
