@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "components": [
     {
       "id": "glitch-text",
@@ -1264,6 +1264,463 @@
           "Default": {}
         },
         "tokenSlots": [],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "button",
+      "storyFile": "../src/components/Corporate/Button/Button.stories.jsx",
+      "visualContext": [
+        "button",
+        "form"
+      ],
+      "moodTags": [
+        "corporate"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {},
+          "Destructive": {},
+          "Outline": {},
+          "Ghost": {},
+          "Secondary": {},
+          "Link": {},
+          "Small": {},
+          "Large": {}
+        },
+        "tokenSlots": [
+          "--corp-primary",
+          "--corp-primary-fg",
+          "--corp-fg",
+          "--corp-surface",
+          "--corp-border",
+          "--corp-radius"
+        ],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "badge",
+      "storyFile": "../src/components/Corporate/Badge/Badge.stories.jsx",
+      "visualContext": [
+        "badge",
+        "callout"
+      ],
+      "moodTags": [
+        "corporate"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {},
+          "Secondary": {},
+          "Outline": {},
+          "Destructive": {}
+        },
+        "tokenSlots": [
+          "--corp-primary",
+          "--corp-primary-fg",
+          "--corp-fg",
+          "--corp-border",
+          "--corp-radius"
+        ],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "card",
+      "storyFile": "../src/components/Corporate/Card/Card.stories.jsx",
+      "visualContext": [
+        "card",
+        "content"
+      ],
+      "moodTags": [
+        "corporate"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {},
+          "Simple": {},
+          "ContentOnly": {}
+        },
+        "tokenSlots": [
+          "--corp-surface",
+          "--corp-border",
+          "--corp-fg",
+          "--corp-fg-muted",
+          "--corp-radius"
+        ],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "skeleton",
+      "storyFile": "../src/components/Corporate/Skeleton/Skeleton.stories.jsx",
+      "visualContext": [
+        "card",
+        "content",
+        "loading"
+      ],
+      "moodTags": [
+        "corporate"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {},
+          "Circle": {},
+          "TextLines": {}
+        },
+        "tokenSlots": [
+          "--corp-surface",
+          "--corp-border",
+          "--corp-radius"
+        ],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "input",
+      "storyFile": "../src/components/Corporate/Input/Input.stories.jsx",
+      "visualContext": [
+        "form"
+      ],
+      "moodTags": [
+        "corporate"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {},
+          "WithValue": {},
+          "Password": {},
+          "Disabled": {}
+        },
+        "tokenSlots": [
+          "--corp-border",
+          "--corp-text",
+          "--corp-bg",
+          "--corp-radius"
+        ],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "textarea",
+      "storyFile": "../src/components/Corporate/Textarea/Textarea.stories.jsx",
+      "visualContext": [
+        "form"
+      ],
+      "moodTags": [
+        "corporate"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {},
+          "WithValue": {},
+          "Disabled": {}
+        },
+        "tokenSlots": [
+          "--corp-border",
+          "--corp-text",
+          "--corp-bg",
+          "--corp-radius"
+        ],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "label",
+      "storyFile": "../src/components/Corporate/Label/Label.stories.jsx",
+      "visualContext": [
+        "form"
+      ],
+      "moodTags": [
+        "corporate"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {},
+          "WithInput": {},
+          "Required": {}
+        },
+        "tokenSlots": [
+          "--corp-text"
+        ],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "native-select",
+      "storyFile": "../src/components/Corporate/NativeSelect/NativeSelect.stories.jsx",
+      "visualContext": [
+        "form"
+      ],
+      "moodTags": [
+        "corporate"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {},
+          "Disabled": {},
+          "WithDisclaimer": {}
+        },
+        "tokenSlots": [
+          "--corp-border",
+          "--corp-text",
+          "--corp-bg",
+          "--corp-radius"
+        ],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "checkbox",
+      "storyFile": "../src/components/Corporate/Checkbox/Checkbox.stories.jsx",
+      "visualContext": [
+        "form"
+      ],
+      "moodTags": [
+        "corporate"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {},
+          "Checked": {},
+          "Disabled": {}
+        },
+        "tokenSlots": [
+          "--corp-border",
+          "--corp-accent",
+          "--corp-radius"
+        ],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "table",
+      "storyFile": "../src/components/Corporate/Table/Table.stories.jsx",
+      "visualContext": [
+        "table"
+      ],
+      "moodTags": [
+        "corporate",
+        "clean"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {},
+          "HeadersOnly": {}
+        },
+        "tokenSlots": [
+          "--corp-border",
+          "--corp-text",
+          "--corp-bg"
+        ],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "pagination",
+      "storyFile": "../src/components/Corporate/Pagination/Pagination.stories.jsx",
+      "visualContext": [
+        "pagination",
+        "navigation"
+      ],
+      "moodTags": [
+        "corporate"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {},
+          "Current": {}
+        },
+        "tokenSlots": [
+          "--corp-text",
+          "--corp-border",
+          "--corp-primary",
+          "--corp-primary-fg"
+        ],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "kbd",
+      "storyFile": "../src/components/Corporate/Kbd/Kbd.stories.jsx",
+      "visualContext": [
+        "content",
+        "button"
+      ],
+      "moodTags": [
+        "corporate"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {},
+          "Modifiers": {},
+          "WithText": {}
+        },
+        "tokenSlots": [
+          "--corp-text",
+          "--corp-border",
+          "--corp-bg"
+        ],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "separator",
+      "storyFile": "../src/components/Corporate/Separator/Separator.stories.jsx",
+      "visualContext": [
+        "content",
+        "section"
+      ],
+      "moodTags": [
+        "corporate"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {},
+          "Vertical": {},
+          "WithLabel": {}
+        },
+        "tokenSlots": [
+          "--corp-border"
+        ],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "avatar",
+      "storyFile": "../src/components/Corporate/Avatar/Avatar.stories.jsx",
+      "visualContext": [
+        "content",
+        "badge"
+      ],
+      "moodTags": [
+        "corporate"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {},
+          "WithImage": {},
+          "Sizes": {}
+        },
+        "tokenSlots": [
+          "--corp-bg",
+          "--corp-text",
+          "--corp-border",
+          "--corp-size"
+        ],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "breadcrumb",
+      "storyFile": "../src/components/Corporate/Breadcrumb/Breadcrumb.stories.jsx",
+      "visualContext": [
+        "breadcrumb",
+        "navigation"
+      ],
+      "moodTags": [
+        "corporate"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {},
+          "WithEllipsis": {}
+        },
+        "tokenSlots": [
+          "--corp-text",
+          "--corp-muted",
+          "--corp-accent"
+        ],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "tabs",
+      "storyFile": "../src/components/Corporate/Tabs/Tabs.stories.jsx",
+      "visualContext": [
+        "tabs",
+        "navigation"
+      ],
+      "moodTags": [
+        "corporate"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {},
+          "Controlled": {}
+        },
+        "tokenSlots": [
+          "--corp-border",
+          "--corp-text",
+          "--corp-muted",
+          "--corp-accent",
+          "--corp-surface"
+        ],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "tooltip",
+      "storyFile": "../src/components/Corporate/Tooltip/Tooltip.stories.jsx",
+      "visualContext": [
+        "tooltip"
+      ],
+      "moodTags": [
+        "corporate"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {},
+          "Bordered": {}
+        },
+        "tokenSlots": [
+          "--corp-bg",
+          "--corp-text",
+          "--corp-border",
+          "--corp-accent"
+        ],
+        "defaultProps": {},
+        "defaults": {}
+      }
+    },
+    {
+      "id": "progress",
+      "storyFile": "../src/components/Corporate/Progress/Progress.stories.jsx",
+      "visualContext": [
+        "progress",
+        "feedback"
+      ],
+      "moodTags": [
+        "corporate"
+      ],
+      "adaptationRules": {
+        "variants": {
+          "Default": {},
+          "AtMax": {},
+          "CustomRange": {}
+        },
+        "tokenSlots": [
+          "--corp-bg",
+          "--corp-accent"
+        ],
         "defaultProps": {},
         "defaults": {}
       }
