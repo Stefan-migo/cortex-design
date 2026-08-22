@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState, memo } from 'react'
 
 /* ponytail: FluidGlass is a Three.js R3F component. The original uses
-   @react-three/fiber, @react-three/drei, and maath. We keep the Three.js
+   @react-three/fiber and @react-three/drei. We keep the Three.js
    stack as it's the core of the component.
    Ceiling: no fallback for missing .glb assets, no server-side rendering.
    NOTE: This component requires @react-three/fiber, @react-three/drei installed. */
@@ -35,16 +35,13 @@ export function FluidGlass({
 /* Load R3F dynamically to avoid hard dependency at import time */
 let R3FCanvas = null
 let R3FDrei = null
-let R3FMaath = null
 
 async function ensureR3F() {
   if (!R3FCanvas) {
     const fiber = await import('@react-three/fiber')
     const drei = await import('@react-three/drei')
-    const maath = await import('maath')
     R3FCanvas = fiber.Canvas
     R3FDrei = drei
-    R3FMaath = maath
   }
   return { Canvas: R3FCanvas, ...R3FDrei }
 }

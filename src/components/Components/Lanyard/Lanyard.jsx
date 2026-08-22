@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import './Lanyard.css'
 
-/* ponytail: Lanyard requires @react-three/fiber, @react-three/drei,
-   @react-three/rapier, and meshline. GLB assets (card.glb, lanyard.png)
-   must be available at the paths the component expects.
-   Ceiling: no SSR, requires WebGL via R3F, physics via Rapier.
+/* ponytail: Lanyard requires @react-three/fiber and @react-three/drei.
+   GLB assets (card.glb, lanyard.png) must be available at the paths the
+   component expects.
+   Ceiling: no SSR, requires WebGL via R3F.
    Upgrade: full implementation needs card.glb and lanyard.png assets. */
 
 export function Lanyard({
@@ -23,7 +23,6 @@ export function Lanyard({
     Promise.all([
       import('@react-three/fiber'),
       import('@react-three/drei'),
-      import('@react-three/rapier'),
     ])
     .then(() => setReady(true))
     .catch(() => setMissing(true))
