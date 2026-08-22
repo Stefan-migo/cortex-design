@@ -8,12 +8,9 @@ describe('Layout', () => {
     expect(screen.getByText('Cortex Design Library')).toBeInTheDocument()
   })
 
-  it('renders the sidebar with categories', () => {
-    render(<Layout><div>Content</div></Layout>)
-    const sidebar = screen.getByRole('complementary')
-    expect(sidebar).toHaveTextContent('All')
-    expect(sidebar).toHaveTextContent('Text Animations')
-    expect(sidebar).toHaveTextContent('Animations')
+  it('has a banner header', () => {
+    render(<Layout><div /></Layout>)
+    expect(screen.getByRole('banner')).toBeInTheDocument()
   })
 
   it('renders children as the main content', () => {
@@ -21,13 +18,8 @@ describe('Layout', () => {
     expect(screen.getByText('Component Grid')).toBeInTheDocument()
   })
 
-  it('has a header with navigation links', () => {
+  it('has no registry-backed sidebar', () => {
     render(<Layout><div /></Layout>)
-    expect(screen.getByRole('banner')).toBeInTheDocument()
-  })
-
-  it('renders sidebar region as complementary', () => {
-    render(<Layout><div /></Layout>)
-    expect(screen.getByRole('complementary')).toBeInTheDocument()
+    expect(screen.queryByRole('complementary')).toBeNull()
   })
 })
