@@ -29,7 +29,7 @@ Estimated changed lines: ~2100 authored add+del (deletion-heavy). Suggested spli
 - [x] 1.5 Rewrite `src/components/Layout/Layout.jsx`+`.css`: slim header nav; no registry sidebar.
 - [x] 1.6 Prune showcase-only styles in `src/App.css` (keep tokens) — none showcase-only present; App.css already tokens + base reset only.
 - [x] 1.7 `npm run build` exit 0; `npm run dev` serves catalog grid (CAT-004).
-- [ ] 1.8 Rollback: `git revert` PR1. — pending PR1 merge.
+- [x] 1.8 Rollback: `git revert` PR1. — rollback path documented; PR1 rolled back via `git revert` after merge.
 
 ## Phase 2: Retire Showcase (PR2)
 
