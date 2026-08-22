@@ -5,6 +5,9 @@ import './ProfileCard.css'
    Ceiling: tilt uses JS RAF loop instead of GPU transfer.
    Upgrade: use motion/react for spring-based tilt interpolation. */
 
+/* ponytail (HLP-002): kept local — this clamp relies on default bounds 0/100 for
+   bare calls (`clamp(x)`), which the DomeGallery variant does NOT share. A shared
+   clamp with either default set would change one consumer. */
 const clamp = (v, min = 0, max = 100) => Math.min(Math.max(v, min), max)
 const round = (v, p = 3) => parseFloat(v.toFixed(p))
 const adjust = (v, fMin, fMax, tMin, tMax) => round(tMin + ((tMax - tMin) * (v - fMin)) / (fMax - fMin))

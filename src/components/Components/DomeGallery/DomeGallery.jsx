@@ -9,6 +9,9 @@ import './DomeGallery.css'
 
 const DEFAULTS = { maxVerticalRotationDeg: 5, dragSensitivity: 20, enlargeTransitionMs: 300, segments: 35 }
 
+/* ponytail (HLP-002): kept local — this clamp has NO default bounds, so it matches
+   the ProfileCard variant only when all 3 args are explicit. Consolidating with the
+   defaulted variant would silently change bare calls. */
 const clamp = (v, min, max) => Math.min(Math.max(v, min), max)
 const normalizeAngle = (d) => ((d % 360) + 360) % 360
 const wrapAngleSigned = (deg) => { const a = (((deg + 180) % 360) + 360) % 360; return a - 180 }

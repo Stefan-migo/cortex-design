@@ -75,7 +75,8 @@ Estimated changed lines: ~2100 authored add+del (deletion-heavy). Suggested spli
 
 ## Phase 8: Helpers Consolidation (PR8)
 
-- [ ] 8.1 Create `src/lib/color-utils.js` (hex→rgb/lerp/clamp) (HLP-001).
-- [ ] 8.2 Swap imports in `BlobCursor`,`GhostCursor`,`Noise`,`Aurora`,`Ballpit`,`DotGrid`,`LightRays`; keep local copy + `ponytail:` comment where unsafe (HLP-001, HLP-002).
-- [ ] 8.3 `npm test`; visual byte-identical (HLP-001).
-- [ ] 8.4 Rollback: `git revert` PR8; local copies retained (HLP-002).
+- [x] 8.1 Create `src/lib/color-utils.js` (hex→rgb/lerp/clamp) (HLP-001). — `10895fe`. Shared util exports `hexToNormalizedRgb` (6-digit `#rrggbb` → `[r,g,b]` 0-1, no fallback); header documents the HLP-002 locals.
+- [x] 8.2 Swap imports in `Beams`,`LineWaves` (the byte-identical normalized-array pair → shared util). Tasks.md pre-listed `BlobCursor`,`GhostCursor`,`Noise`,`Aurora`,`Ballpit` — each has NO local hex/lerp helper (comments only / three.Color), nothing to swap. `DotGrid`,`LightRays`,`FloatingLines`,`CurvedInput`,`DomeGallery`,`ProfileCard` differ behaviorally → local copy + `ponytail:` comment (HLP-002). — `10895fe`.
+- [x] 8.3 `npm run build` green (43 modules); `npx vitest run` 68/68; output byte-identical (HLP-001) — no renderer logic touched, only the normalized-array helper source moved.
+- [x] 8.4 Rollback: `git revert` PR8 (`10895fe` + `f022884`); local copies retained (HLP-002).
+- [x] 8.5 `cursor-grid` catalog cleanup (orchestrator-approved, DC-007 family: DotGrid is keeper): entry removed 52→51. — `f022884`.

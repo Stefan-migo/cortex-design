@@ -14,6 +14,9 @@ if(enableTop){for(int i=0;i<8;i++){if(i>=topLineCount)break;float fi=float(i);fl
 fc=vec4(c,1.0);}void main(){vec4 c;mainImage(c,gl_FragCoord.xy);gl_FragColor=c;}`;
 
 const MAX_GRADIENT_STOPS=8;
+/* ponytail: kept LOCAL copy instead of src/lib/color-utils.js (HLP-002) because this
+   hexToVec3 returns a THREE.Vector3 and supports 3-digit shorthand — the shared
+   helper returns a plain array and only handles 6-digit hex. */
 function hexToVec3(hex){let v=hex.trim();if(v.startsWith('#'))v=v.slice(1);let r=255,g=255,b=255;if(v.length===3){r=parseInt(v[0]+v[0],16);g=parseInt(v[1]+v[1],16);b=parseInt(v[2]+v[2],16);}else if(v.length===6){r=parseInt(v.slice(0,2),16);g=parseInt(v.slice(2,4),16);b=parseInt(v.slice(4,6),16);}return new Vector3(r/255,g/255,b/255);}
 
 export function FloatingLines({linesGradient,enabledWaves=['top','middle','bottom'],lineCount=[6],lineDistance=[5],topWavePosition,middleWavePosition,bottomWavePosition={x:2.0,y:-0.7,rotate:-1},animationSpeed=1,interactive=true,bendRadius=5,bendStrength=-0.5,mouseDamping=0.05,parallax=true,parallaxStrength=0.2,mixBlendMode='screen',className=''}){

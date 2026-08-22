@@ -10,6 +10,9 @@ const DEG = 180 / Math.PI
 const round2 = (n) => Math.round(n * 100) / 100
 
 const hexToRgba = (hex, alpha) => {
+  /* ponytail (HLP-002): kept local — this is a rgba() STRING builder with an alpha
+     arg and NaN passthrough for drop-shadow filters, unlike the normalized-array
+     helper in src/lib/color-utils.js. Consolidating would change filter output. */
   let h = String(hex).replace('#', '')
   if (h.length === 3) h = h.split('').map(c => c + c).join('')
   const n = parseInt(h.slice(0, 6), 16)

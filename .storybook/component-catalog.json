@@ -809,31 +809,6 @@
       }
     },
     {
-      "id": "cursor-grid",
-      "storyFile": "../src/components/Animations/CursorGrid/CursorGrid.stories.jsx",
-      "visualContext": [
-        "background",
-        "cursor",
-        "showcase"
-      ],
-      "moodTags": [
-        "dynamic",
-        "tech",
-        "interactive"
-      ],
-      "adaptationRules": {
-        "variants": {
-          "Default": {},
-          "SmallGrid": {},
-          "LargeCells": {},
-          "DifferentColor": {}
-        },
-        "tokenSlots": [],
-        "defaultProps": {},
-        "defaults": {}
-      }
-    },
-    {
       "id": "gradual-blur",
       "storyFile": "../src/components/Animations/GradualBlur/GradualBlur.stories.jsx",
       "visualContext": [
