@@ -48,9 +48,9 @@ Estimated changed lines: ~2100 authored add+del (deletion-heavy). Suggested spli
 
 ## Phase 4: SB7 Boilerplate (PR4)
 
-- [ ] 4.1 Delete `src/stories/` (Configure.mdx, assets/, button/header/page.css) (SB-CAT-002).
-- [ ] 4.2 Build green; `src/stories/` absent (SB-CAT-002).
-- [ ] 4.3 Rollback: `git revert` PR4.
+- [x] 4.1 Delete `src/stories/` (Configure.mdx, assets/, button/header/page.css) (SB-CAT-002).
+- [x] 4.2 Build green; `src/stories/` absent (SB-CAT-002).
+- [x] 4.3 Rollback: `git revert` PR4.
 
 ## Phase 5: Deps Removal (PR5)
 
