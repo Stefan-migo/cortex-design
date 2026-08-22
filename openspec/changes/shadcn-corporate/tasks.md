@@ -71,11 +71,11 @@ Threat matrix: N/A (design: CSS-only components + JSON entries, no routing/shell
 
 ## Phase 5 — Catalog Bump (PR 5, ~250 lines) — stacks AFTER P2–P4 merges
 
-- [ ] 5.1 Wait until P1–P4 merged on main (all 18 triads committed) so storyFiles resolve (SB-GLOBAL-002).
-- [ ] 5.2 Extend `.storybook/component-catalog.json`: version→1.1.0, add 18 corporate entries (DC-004 object-form: `storyFile`, `moodTags:["corporate"]`, extended `visualContext`, `adaptationRules.variants` map, `tokenSlots` `--corp-*`) (CA-005, CAT-001/005).
-- [ ] 5.3 Update `src/__tests__/…/catalog-query.test.js` — assert 69 entries, version 1.1.0, `queryComponents("table",["corporate","clean"])` match, no phantom ids (CA-005, DC-007).
-- [ ] 5.4 Verify no-legacy-imports (registry.js/sources.js gone) + corporate detail surface resolves (CAT-001).
-- [ ] 5.5 Commit catalog + test together; run PR5 focused test + `.cortex` validate + `npm run build`; confirm `src/`+`.storybook/` zero-diff (SB-GLOBAL-002).
+- [x] 5.1 Wait until P1–P4 merged on main (all 18 triads committed) so storyFiles resolve (SB-GLOBAL-002).
+- [x] 5.2 Extend `.storybook/component-catalog.json`: version→1.1.0, add 18 corporate entries (DC-004 object-form: `storyFile`, `moodTags:["corporate"]`, extended `visualContext`, `adaptationRules.variants` map, `tokenSlots` `--corp-*`) (CA-005, CAT-001/005).
+- [x] 5.3 Update `tests/catalog-query.test.js` (actual path; task list's `src/__tests__/…/` was stale) — assert 69 entries, version 1.1.0, `queryComponents("table",["corporate","clean"])` match, no phantom ids (CA-005, DC-007).
+- [x] 5.4 Verify no-legacy-imports (registry.js/sources.js gone) + corporate detail surface resolves (CAT-001).
+- [x] 5.5 Commit catalog + test together; run PR5 focused test + `.cortex` validate (vitest gate) + `npm run build`; confirm `src/`+`.storybook/` zero-diff (SB-GLOBAL-002).
 
 ## Phase 6 — Global Verification (no PR; pre-merge gates)
 
