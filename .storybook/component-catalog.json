@@ -102,28 +102,6 @@
       }
     },
     {
-      "id": "curtains",
-      "storyFile": "../src/components/Transitions/DoorsOverlay.stories.jsx",
-      "visualContext": [
-        "transition",
-        "navigation",
-        "page-change"
-      ],
-      "moodTags": [
-        "modern",
-        "dynamic",
-        "sleek"
-      ],
-      "adaptationRules": {
-        "variants": {
-          "Default": {}
-        },
-        "tokenSlots": [],
-        "defaultProps": {},
-        "defaults": {}
-      }
-    },
-    {
       "id": "layout",
       "storyFile": null,
       "visualContext": [

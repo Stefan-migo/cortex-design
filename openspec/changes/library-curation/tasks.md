@@ -41,10 +41,10 @@ Estimated changed lines: ~2100 authored add+del (deletion-heavy). Suggested spli
 
 ## Phase 3: Curtains Cut (PR3)
 
-- [ ] 3.1 Delete `Transitions/CurtainsNew.jsx`+`curtains.css` + 5 stories (`ClipEllipseWipe`,`DoorsOverlay`,`PixelGridOverlay`,`ShutterSlats`,`StaggerColumns`).
-- [ ] 3.2 Drop `curtains` entry from catalog (SB-CAT-001).
-- [ ] 3.3 Build green; no curtains card (CAT-004).
-- [ ] 3.4 Rollback: `git revert` PR3.
+- [x] 3.1 Delete `Transitions/CurtainsNew.jsx`+`curtains.css` + 5 stories (`ClipEllipseWipe`,`DoorsOverlay`,`PixelGridOverlay`,`ShutterSlats`,`StaggerColumns`).
+- [x] 3.2 Drop `curtains` entry from catalog (SB-CAT-001).
+- [x] 3.3 Build green; no curtains card (CAT-004).
+- [x] 3.4 Rollback: `git revert` PR3.
 
 ## Phase 4: SB7 Boilerplate (PR4)
 
