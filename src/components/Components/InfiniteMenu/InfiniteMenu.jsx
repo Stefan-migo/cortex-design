@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import './InfiniteMenu.css'
 
-/* ponytail: WebGL2 + gl-matrix — kept because the 3D icosahedron grid
-   with instance rendering and arcball control is the core feature.
-   Ceiling: requires WebGL2, gl-matrix dependency.
+/* ponytail: WebGL2 raw canvas implementation — kept because the 3D
+   icosahedron grid with instance rendering and arcball control is the
+   core feature.
+   Ceiling: requires WebGL2.
    Upgrade: use Three.js for broader WebGL1 support. */
 
 export function InfiniteMenu({ items = [], scale = 1.0, className = '' }) {
