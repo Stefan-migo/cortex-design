@@ -1,0 +1,24 @@
+.corp-avatar {
+  --corp-bg: var(--surface);
+  --corp-text: var(--text);
+  --corp-border: var(--border);
+  --corp-size: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--corp-size);
+  height: var(--corp-size);
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--corp-bg);
+  color: var(--corp-text);
+  font-size: calc(var(--corp-size) / 2.5);
+  font-weight: 500;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.corp-avatar--fallback {
+  border: 1px solid var(--corp-border);
+  text-transform: uppercase;
+}
