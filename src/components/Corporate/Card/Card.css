@@ -1,0 +1,40 @@
+.corp-card {
+  --corp-surface: var(--surface);
+  --corp-border: var(--border);
+  --corp-fg: var(--text);
+  --corp-fg-muted: var(--text-muted);
+  --corp-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--corp-border);
+  border-radius: var(--corp-radius);
+  background: var(--corp-surface);
+  color: var(--corp-fg);
+  overflow: hidden;
+}
+
+.corp-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding: 1.5rem 1.5rem 0;
+}
+
+.corp-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+.corp-card__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.corp-card__content {
+  padding: 1.5rem;
+  padding-top: 1rem;
+}

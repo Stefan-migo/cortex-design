@@ -1,0 +1,102 @@
+.corp-button {
+  --corp-primary: var(--accent);
+  --corp-primary-fg: var(--text);
+  --corp-fg: var(--text);
+  --corp-surface: var(--surface);
+  --corp-border: var(--border);
+  --corp-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font: inherit;
+  font-weight: 500;
+  line-height: 1;
+  border: 1px solid transparent;
+  border-radius: var(--corp-radius);
+  padding: 0.5rem 1rem;
+  background: var(--corp-primary);
+  color: var(--corp-primary-fg);
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.corp-button:hover {
+  filter: brightness(1.1);
+}
+
+.corp-button:focus-visible {
+  outline: 2px solid var(--corp-primary);
+  outline-offset: 2px;
+}
+
+.corp-button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.corp-button--destructive {
+  background: var(--corp-primary);
+  color: var(--corp-fg);
+}
+
+.corp-button--outline {
+  background: transparent;
+  border-color: var(--corp-border);
+  color: var(--corp-fg);
+}
+
+.corp-button--outline:hover {
+  background: var(--corp-surface);
+}
+
+.corp-button--ghost {
+  background: transparent;
+  color: var(--corp-fg);
+}
+
+.corp-button--ghost:hover {
+  background: var(--corp-surface);
+}
+
+.corp-button--secondary {
+  background: var(--corp-surface);
+  color: var(--corp-fg);
+}
+
+.corp-button--secondary:hover {
+  background: var(--corp-border);
+}
+
+.corp-button--link {
+  background: transparent;
+  color: var(--corp-primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.corp-button--link:hover {
+  filter: none;
+}
+
+.corp-button--sm {
+  height: 2rem;
+  padding: 0 0.75rem;
+  border-radius: calc(var(--corp-radius) - 2px);
+}
+
+.corp-button--lg {
+  height: 2.75rem;
+  padding: 0 1.5rem;
+  border-radius: var(--corp-radius);
+}
+
+.corp-button--icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+}
