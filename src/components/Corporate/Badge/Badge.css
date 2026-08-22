@@ -1,0 +1,36 @@
+.corp-badge {
+  --corp-primary: var(--accent);
+  --corp-primary-fg: var(--text);
+  --corp-fg: var(--text);
+  --corp-border: var(--border);
+  --corp-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  border: 1px solid transparent;
+  border-radius: var(--corp-radius);
+  padding: 0.25rem 0.625rem;
+  background: var(--corp-primary);
+  color: var(--corp-primary-fg);
+  white-space: nowrap;
+}
+
+.corp-badge--secondary {
+  background: var(--corp-border);
+  color: var(--corp-fg);
+}
+
+.corp-badge--outline {
+  background: transparent;
+  border-color: var(--corp-border);
+  color: var(--corp-fg);
+}
+
+.corp-badge--destructive {
+  background: var(--corp-primary);
+  color: var(--corp-fg);
+}
