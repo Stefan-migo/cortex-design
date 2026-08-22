@@ -1,0 +1,36 @@
+.corp-select {
+  --corp-border: var(--border);
+  --corp-text: var(--text);
+  --corp-bg: var(--surface);
+  --corp-radius: 6px;
+  display: inline-flex;
+  height: 2.5rem;
+  width: 100%;
+  align-items: center;
+  border: 1px solid var(--corp-border);
+  border-radius: var(--corp-radius);
+  background: var(--corp-bg);
+  color: var(--corp-text);
+  font: inherit;
+  padding: 0 2rem 0 0.75rem;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.corp-select:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+.corp-select:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.corp-select > option {
+  color: var(--corp-text);
+  background: var(--corp-bg);
+}
